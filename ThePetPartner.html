@@ -1009,45 +1009,9 @@
       <p>
         The Essential Social Growth Plan is ideal for building a polished and consistent online presence while keeping the monthly budget practical.
       </p>
-      <button id="approve-btn" class="btn-primary">Approve Monthly Plan</button>
     </section>
 
   </main>
-
-  <!-- Interactive toast notification -->
-  <div id="toast" class="toast-notification">
-    <div class="toast-content">
-      <div class="toast-icon">✓</div>
-      <div class="toast-text">
-        <h4>Plan Approved!</h4>
-        <p>We are initiating the onboarding calendar for The Pet Partner.</p>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    document.getElementById('approve-btn').addEventListener('click', function() {
-      const toast = document.getElementById('toast');
-      toast.style.display = 'block';
-      
-      // Update button visual state
-      this.textContent = 'Approved!';
-      this.style.backgroundColor = '#34c759';
-      this.style.borderColor = '#34c759';
-      
-      setTimeout(() => {
-        toast.style.opacity = '0';
-        toast.style.transform = 'translateY(10px)';
-        toast.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-        setTimeout(() => {
-          toast.style.display = 'none';
-          toast.style.opacity = '1';
-          toast.style.transform = 'none';
-          toast.style.transition = 'none';
-        }, 500);
-      }, 4000);
-    });
-  </script>
 
 </body>
 </html>
