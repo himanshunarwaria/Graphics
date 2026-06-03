@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Pet Partner — Social Media Growth Proposal</title>
+
+  <style>
+    /* CSS Variables for design system */
+    :root {
+      --bg-page: #f9f9fb;
+      --bg-card: #ffffff;
+      --color-primary: #1c1c1e;
+      --color-secondary: #86868b;
+      --color-accent-peach: #fff5f0;
+      --color-accent-peach-text: #e05638;
+      --color-accent-green: #f0fdf4;
+      --color-accent-green-text: #166534;
+      --color-accent-blue: #f0f7ff;
+      --color-accent-blue-text: #1d4ed8;
+      --color-accent-beige: #fafaf9;
+      --color-accent-beige-text: #78716c;
+      --color-border: #e5e5ea;
+      --color-border-light: #f2f2f7;
+      --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --shadow-card: 0 8px 30px rgba(0, 0, 0, 0.02), 0 1px 2px rgba(0, 0, 0, 0.02);
+      --shadow-card-hover: 0 16px 40px rgba(0, 0, 0, 0.05), 0 2px 8px rgba(0, 0, 0, 0.02);
+      --radius-card: 22px;
+      --radius-button: 999px;
+      --radius-inner: 14px;
+      --transition-base: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Reset & Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-page);
+      color: var(--color-primary);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Navbar / Header */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+      background: rgba(249, 249, 251, 0.8);
+      backdrop-filter: blur(20px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+    }
+
+    .navbar-logo {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .navbar-logo span {
+      background: var(--color-accent-peach-text);
+      color: #fff;
+      padding: 4px 8px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .navbar-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-secondary);
+      background: #ffffff;
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--color-border);
+    }
+
+    .navbar-status::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      background-color: #34c759;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    /* Layout Wrapper */
+    .proposal-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px 100px;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 80px 0 60px;
+      max-width: 840px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: #f2f2f7;
+      color: var(--color-primary);
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: -0.1px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 6vw, 64px);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -2px;
+      margin-bottom: 24px;
+      color: var(--color-primary);
+    }
+
+    .hero p {
+      font-size: clamp(17px, 2.5vw, 21px);
+      line-height: 1.45;
+      color: var(--color-secondary);
+      font-weight: 400;
+      margin-bottom: 36px;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 80px;
+    }
+
+    /* Buttons */
+    .btn-primary {
+      display: inline-block;
+      background: var(--color-primary);
+      color: #ffffff;
+      text-decoration: none;
+      padding: 16px 32px;
+      border-radius: var(--radius-button);
+      font-weight: 600;
+      font-size: 16px;
+      transition: var(--transition-base);
+      border: 1px solid var(--color-primary);
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      background: #2c2c2e;
+    }
+
+    .btn-secondary {
+      display: inline-block;
+      background: #ffffff;
+      color: var(--color-primary);
+      text-decoration: none;
+      padding: 16px 32px;
+      border-radius: var(--radius-button);
+      font-weight: 600;
+      font-size: 16px;
+      transition: var(--transition-base);
+      border: 1px solid var(--color-border);
+      cursor: pointer;
+    }
+
+    .btn-secondary:hover {
+      background: #f5f5f7;
+      transform: translateY(-2px);
+    }
+
+    /* Hero Mockup Cards */
+    .hero-visuals {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 100px;
+    }
+
+    .visual-card {
+      background: #ffffff;
+      border-radius: var(--radius-card);
+      border: 1px solid var(--color-border-light);
+      padding: 24px;
+      box-shadow: var(--shadow-card);
+      text-align: left;
+      transition: var(--transition-base);
+    }
+
+    .visual-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-card-hover);
+    }
+
+    /* Instagram post mockup */
+    .mock-post-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .mock-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--color-accent-peach);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+
+    .mock-username {
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .mock-post-image {
+      height: 180px;
+      background: var(--color-accent-peach);
+      border-radius: var(--radius-inner);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      text-align: center;
+      border: 1px solid rgba(0,0,0,0.02);
+      margin-bottom: 14px;
+    }
+
+    .mock-post-image .emoji {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .mock-post-image .title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-accent-peach-text);
+      line-height: 1.3;
+    }
+
+    .mock-post-likes {
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .mock-post-caption {
+      font-size: 12px;
+      color: var(--color-secondary);
+      line-height: 1.4;
+    }
+
+    /* Reel mockup */
+    .mock-reel {
+      height: 290px;
+      background: linear-gradient(180deg, #1c1c1e 0%, #2c2c2e 100%);
+      color: #ffffff;
+      border-radius: var(--radius-inner);
+      position: relative;
+      overflow: hidden;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .mock-reel-badge {
+      align-self: flex-start;
+      background: rgba(255,255,255,0.2);
+      padding: 4px 10px;
+      border-radius: 99px;
+      font-size: 10px;
+      font-weight: 700;
+      backdrop-filter: blur(5px);
+    }
+
+    .mock-reel-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      backdrop-filter: blur(5px);
+    }
+
+    .mock-reel-info {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .mock-reel-title {
+      font-size: 14px;
+      font-weight: 700;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+
+    /* Analytics Card */
+    .mock-analytics-val {
+      font-size: 38px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin: 16px 0 8px;
+    }
+
+    .mock-tag {
+      display: inline-flex;
+      background: var(--color-accent-green);
+      color: var(--color-accent-green-text);
+      padding: 4px 10px;
+      border-radius: 99px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .mock-graph {
+      height: 80px;
+      margin-top: 24px;
+      display: flex;
+      align-items: flex-end;
+      gap: 6px;
+    }
+
+    .mock-bar {
+      flex: 1;
+      background: var(--color-border-light);
+      border-radius: 4px 4px 0 0;
+    }
+
+    .mock-bar.active {
+      background: var(--color-accent-green-text);
+    }
+
+    /* Section titles */
+    .section-header {
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .section-header h2 {
+      font-size: clamp(28px, 4.5vw, 40px);
+      font-weight: 800;
+      letter-spacing: -1.2px;
+      color: var(--color-primary);
+      margin-bottom: 8px;
+    }
+
+    .section-header p {
+      font-size: 17px;
+      color: var(--color-secondary);
+    }
+
+    /* Package Section Styling */
+    .package-container {
+      margin-bottom: 100px;
+    }
+
+    .pricing-card {
+      background: #ffffff;
+      border-radius: var(--radius-card);
+      border: 1px solid var(--color-border);
+      padding: 48px;
+      box-shadow: var(--shadow-card);
+      max-width: 800px;
+      margin: 0 auto;
+      transition: var(--transition-base);
+    }
+
+    .pricing-card:hover {
+      box-shadow: var(--shadow-card-hover);
+    }
+
+    .pricing-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 32px;
+      border-bottom: 1px solid var(--color-border-light);
+      padding-bottom: 24px;
+    }
+
+    .package-tag {
+      background: var(--color-accent-peach);
+      color: var(--color-accent-peach-text);
+      padding: 6px 14px;
+      border-radius: 99px;
+      font-size: 12px;
+      font-weight: 700;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+
+    .pricing-header h3 {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .pricing-header .price-value {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--color-primary);
+      text-align: right;
+    }
+
+    .pricing-header .price-sub {
+      font-size: 14px;
+      color: var(--color-secondary);
+      font-weight: 500;
+    }
+
+    .package-features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      list-style: none;
+      margin-bottom: 36px;
+    }
+
+    .package-features li {
+      font-size: 15px;
+      color: var(--color-primary);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .package-features li::before {
+      content: "✓";
+      color: #34c759;
+      font-weight: 800;
+      font-size: 16px;
+    }
+
+    .pricing-pitch {
+      background: var(--color-accent-blue);
+      border-radius: var(--radius-inner);
+      padding: 24px;
+      border: 1px solid rgba(29, 78, 216, 0.05);
+    }
+
+    .pricing-pitch p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #1e3a8a;
+      font-weight: 500;
+    }
+
+    /* Breakdown Section */
+    .breakdown {
+      margin-bottom: 100px;
+    }
+
+    .breakdown-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .breakdown-card {
+      background: #ffffff;
+      border-radius: var(--radius-card);
+      border: 1px solid var(--color-border-light);
+      padding: 36px;
+      box-shadow: var(--shadow-card);
+      transition: var(--transition-base);
+    }
+
+    .breakdown-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-card-hover);
+    }
+
+    .breakdown-card .icon-label {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 24px;
+    }
+
+    .breakdown-card.posts .icon-label {
+      background: var(--color-accent-peach);
+    }
+
+    .breakdown-card.reels .icon-label {
+      background: var(--color-accent-blue);
+    }
+
+    .breakdown-card h3 {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+    }
+
+    .breakdown-card p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--color-secondary);
+    }
+
+    /* Content Ideas Grid */
+    .ideas {
+      margin-bottom: 100px;
+    }
+
+    .ideas-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .idea-card {
+      background: #ffffff;
+      border-radius: var(--radius-card);
+      border: 1px solid var(--color-border-light);
+      padding: 28px;
+      box-shadow: var(--shadow-card);
+      transition: var(--transition-base);
+    }
+
+    .idea-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-card-hover);
+    }
+
+    .idea-card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .idea-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: #f2f2f7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    .idea-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .idea-card p {
+      font-size: 14px;
+      color: var(--color-secondary);
+      line-height: 1.5;
+    }
+
+    /* Why it works section (Dark premium glass layout) */
+    .why-works {
+      background: #1c1c1e;
+      color: #ffffff;
+      border-radius: var(--radius-card);
+      padding: 56px;
+      margin-bottom: 100px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .why-works::before {
+      content: "";
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(224, 86, 56, 0.15) 0%, rgba(224, 86, 56, 0) 70%);
+      border-radius: 50%;
+      top: -100px;
+      right: -100px;
+      pointer-events: none;
+    }
+
+    .why-works-content {
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .why-works h2 {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 20px;
+    }
+
+    .why-works p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #aeaeb2;
+      font-weight: 400;
+    }
+
+    /* Deliverables Checklist & Timeline */
+    .checklist-timeline-container {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 32px;
+      margin-bottom: 100px;
+    }
+
+    .checklist-box {
+      background: #ffffff;
+      border-radius: var(--radius-card);
+      border: 1px solid var(--color-border-light);
+      padding: 40px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .checklist-box h3 {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 24px;
+      letter-spacing: -0.5px;
+    }
+
+    .checklist-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .checklist-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 15px;
+      font-weight: 550;
+    }
+
+    .checklist-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--color-accent-green);
+      color: var(--color-accent-green-text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .timeline-box {
+      background: #ffffff;
+      border-radius: var(--radius-card);
+      border: 1px solid var(--color-border-light);
+      padding: 40px;
+      box-shadow: var(--shadow-card);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .timeline-box h3 {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+    }
+
+    .timeline-box p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--color-secondary);
+    }
+
+    /* Addons section */
+    .addons {
+      margin-bottom: 100px;
+    }
+
+    .addons-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .addon-card {
+      background: #ffffff;
+      border-radius: var(--radius-card);
+      border: 1px solid var(--color-border-light);
+      padding: 24px;
+      box-shadow: var(--shadow-card);
+      transition: var(--transition-base);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .addon-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-card-hover);
+    }
+
+    .addon-name {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .addon-desc {
+      font-size: 13px;
+      color: var(--color-secondary);
+      margin-bottom: 16px;
+    }
+
+    .addon-price {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--color-accent-peach-text);
+      margin-top: auto;
+    }
+
+    .addon-tag {
+      font-size: 11px;
+      font-weight: 700;
+      background: #f2f2f7;
+      color: var(--color-secondary);
+      padding: 4px 8px;
+      border-radius: 6px;
+      align-self: flex-start;
+      margin-bottom: 10px;
+    }
+
+    /* Final CTA Area */
+    .final-cta {
+      background: #ffffff;
+      border-radius: var(--radius-card);
+      border: 1px solid var(--color-border);
+      padding: 64px 40px;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+      box-shadow: var(--shadow-card-hover);
+    }
+
+    .final-cta h2 {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 12px;
+    }
+
+    .final-cta p {
+      font-size: 16px;
+      color: var(--color-secondary);
+      max-width: 550px;
+      margin: 0 auto 32px;
+    }
+
+    /* Toast System */
+    .toast-notification {
+      display: none;
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      background: #ffffff;
+      border-radius: 16px;
+      border: 1px solid var(--color-border);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+      padding: 20px;
+      z-index: 1000;
+      max-width: 380px;
+      animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .toast-content {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .toast-icon {
+      font-size: 24px;
+      background: var(--color-accent-green);
+      color: var(--color-accent-green-text);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .toast-text h4 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .toast-text p {
+      font-size: 13px;
+      color: var(--color-secondary);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 900px) {
+      .hero-visuals {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        max-width: 420px;
+        margin: 0 auto 60px;
+      }
+
+      .ideas-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .checklist-timeline-container {
+        grid-template-columns: 1fr;
+      }
+
+      .addons-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .proposal-container {
+        padding: 0 16px 60px;
+      }
+
+      .navbar {
+        padding: 20px 16px;
+      }
+
+      .hero {
+        padding: 50px 0 40px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        gap: 12px;
+        align-items: stretch;
+        max-width: 320px;
+        margin: 0 auto 60px;
+      }
+
+      .pricing-card {
+        padding: 24px;
+      }
+
+      .package-features {
+        grid-template-columns: 1fr;
+      }
+
+      .pricing-header {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .pricing-header .price-value {
+        text-align: left;
+      }
+
+      .breakdown-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .ideas-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .addons-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .why-works {
+        padding: 32px 20px;
+      }
+
+      .final-cta {
+        padding: 40px 20px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .checklist-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Sticky Apple-style navbar -->
+  <header class="navbar">
+    <div class="navbar-logo">
+      🐾 The Pet Partner
+    </div>
+    <div class="navbar-status">
+      Active Proposal
+    </div>
+  </header>
+
+  <main class="proposal-container">
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-badge">Social Media Growth Proposal</div>
+      <h1>Grow The Pet Partner with Premium Social Media Content</h1>
+      <p>
+        The Pet Partner needs a consistent and trustworthy social media presence because pet parents connect with brands emotionally before they buy. We recommend a monthly content package of 12 social media posts and 6 reels to stay active, educate pet owners, and build trust.
+      </p>
+      <div class="hero-actions">
+        <a href="#package" class="btn-primary">View Monthly Package</a>
+        <a href="#ideas" class="btn-secondary">View Content Ideas</a>
+      </div>
+    </section>
+
+    <!-- Visual Deck / IG Mockups Grid -->
+    <section class="hero-visuals">
+      <!-- Post Mockup -->
+      <div class="visual-card">
+        <div class="mock-post-header">
+          <div class="mock-avatar">🐕</div>
+          <div class="mock-username">thepetpartner</div>
+        </div>
+        <div class="mock-post-image">
+          <span class="emoji">🧼</span>
+          <span class="title">How often should you bathe your dog?</span>
+        </div>
+        <div class="mock-post-likes">184 likes</div>
+        <div class="mock-post-caption">
+          <strong>thepetpartner</strong> Bathing frequency depends heavily on your dog's breed, coat... <span style="color: var(--color-secondary)">more</span>
+        </div>
+      </div>
+
+      <!-- Reel Mockup -->
+      <div class="visual-card" style="padding: 12px;">
+        <div class="mock-reel">
+          <span class="mock-reel-badge">Reel Preview</span>
+          <div class="mock-reel-center">▶</div>
+          <div class="mock-reel-info">
+            <span class="mock-reel-title">5 Signs your dog is happy! 🐾</span>
+            <span style="font-size: 11px; opacity: 0.8;">♫ Original Audio</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Analytics Mockup -->
+      <div class="visual-card">
+        <span class="mock-tag">Growth</span>
+        <div class="mock-analytics-val">+142%</div>
+        <div style="font-size: 13px; font-weight: 600; color: var(--color-secondary)">Monthly Profile Visits</div>
+        <div class="mock-graph">
+          <div class="mock-bar" style="height: 30%"></div>
+          <div class="mock-bar" style="height: 45%"></div>
+          <div class="mock-bar" style="height: 40%"></div>
+          <div class="mock-bar" style="height: 65%"></div>
+          <div class="mock-bar" style="height: 80%"></div>
+          <div class="mock-bar active" style="height: 95%"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing / Package Section -->
+    <section id="package" class="package-container">
+      <div class="section-header">
+        <h2>Monthly Content Package</h2>
+        <p>Simple pricing with no hidden costs.</p>
+      </div>
+
+      <div class="pricing-card">
+        <div class="pricing-header">
+          <div>
+            <span class="package-tag">Primary Plan</span>
+            <h3>Essential Social Growth Plan</h3>
+          </div>
+          <div>
+            <div class="price-value">₹18,000 – ₹25,000</div>
+            <div class="price-sub">per month</div>
+          </div>
+        </div>
+
+        <ul class="package-features">
+          <li>12 designed social media posts</li>
+          <li>6 Instagram reels</li>
+          <li>Captions for all posts and reels</li>
+          <li>Basic hashtag suggestions</li>
+          <li>Monthly content planning</li>
+          <li>Brand-consistent creative direction</li>
+        </ul>
+
+        <div class="pricing-pitch">
+          <p>
+            The Pet Partner needs a consistent and trustworthy social media presence because pet parents connect with brands emotionally before they buy.
+          </p>
+          <p style="margin-top: 12px;">
+            This plan is ideal for The Pet Partner because it balances quality, consistency, and affordability. The posts will help build authority and trust, while reels will improve reach and engagement.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Deliverables Breakdown Section -->
+    <section class="breakdown">
+      <div class="section-header">
+        <h2>Package Breakdown</h2>
+        <p>A balanced delivery structure designed for engagement.</p>
+      </div>
+
+      <div class="breakdown-grid">
+        <div class="breakdown-card posts">
+          <div class="icon-label">🎨</div>
+          <h3>12 Social Media Posts</h3>
+          <p>Designed static/carousel posts focused on pet care tips, brand awareness, offers, testimonials, product/service highlights, and educational content.</p>
+        </div>
+
+        <div class="breakdown-card reels">
+          <div class="icon-label">📹</div>
+          <h3>6 Reels</h3>
+          <p>Short-form video concepts designed to improve reach, engagement, and emotional connection with pet parents.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Content Ideas Section -->
+    <section id="ideas" class="ideas">
+      <div class="section-header">
+        <h2>Content Ideas</h2>
+        <p>Strategic content pillars curated specifically for The Pet Partner.</p>
+      </div>
+
+      <div class="ideas-grid">
+        <div class="idea-card">
+          <div class="idea-card-header">
+            <div class="idea-icon">💡</div>
+            <h3>Pet Care Tips</h3>
+          </div>
+          <p>Educational posts and bite-sized guides for pet parents to establish your authority.</p>
+        </div>
+
+        <div class="idea-card">
+          <div class="idea-card-header">
+            <div class="idea-icon">🏷️</div>
+            <h3>Product/Service Highlights</h3>
+          </div>
+          <p>Aesthetic showcases of what The Pet Partner offers, encouraging natural inquiries.</p>
+        </div>
+
+        <div class="idea-card">
+          <div class="idea-card-header">
+            <div class="idea-icon">🤝</div>
+            <h3>Trust-Building Content</h3>
+          </div>
+          <p>Testimonials, before-after logs, client reviews, and heartfelt client stories.</p>
+        </div>
+
+        <div class="idea-card">
+          <div class="idea-card-header">
+            <div class="idea-icon">🚀</div>
+            <h3>Reels for Reach</h3>
+          </div>
+          <p>Short, trending, engaging video snippets to capture new viewers and build awareness.</p>
+        </div>
+
+        <div class="idea-card">
+          <div class="idea-card-header">
+            <div class="idea-icon">🎉</div>
+            <h3>Festive & Seasonal Posts</h3>
+          </div>
+          <p>Timely pet-friendly campaigns designed around holidays, events, and occasions.</p>
+        </div>
+
+        <div class="idea-card">
+          <div class="idea-card-header">
+            <div class="idea-icon">💛</div>
+            <h3>Brand Personality</h3>
+          </div>
+          <p>Warm, relatable behind-the-scenes content that introduces the team and pets behind the brand.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why This Plan Works -->
+    <section class="why-works">
+      <div class="why-works-content">
+        <h2>Why This Plan Works</h2>
+        <p>
+          For a pet brand, trust and emotional connection matter the most. This content plan helps The Pet Partner stay visible, helpful, and memorable. Instead of posting randomly, every piece of content will follow a clear direction: educate, engage, and convert pet parents into loyal customers.
+        </p>
+      </div>
+    </section>
+
+    <!-- Deliverables Checklist & Timeline -->
+    <section class="checklist-timeline-container">
+      <div class="checklist-box">
+        <h3>Deliverables List</h3>
+        <div class="checklist-grid">
+          <div class="checklist-item">
+            <div class="checklist-icon">✓</div>
+            <span>12 designed posts</span>
+          </div>
+          <div class="checklist-item">
+            <div class="checklist-icon">✓</div>
+            <span>6 reels concepts/edits</span>
+          </div>
+          <div class="checklist-item">
+            <div class="checklist-icon">✓</div>
+            <span>Captions for all posts</span>
+          </div>
+          <div class="checklist-item">
+            <div class="checklist-icon">✓</div>
+            <span>Basic hashtag set</span>
+          </div>
+          <div class="checklist-item">
+            <div class="checklist-icon">✓</div>
+            <span>Monthly content calendar</span>
+          </div>
+          <div class="checklist-item">
+            <div class="checklist-icon">✓</div>
+            <span>Brand-consistent design</span>
+          </div>
+          <div class="checklist-item">
+            <div class="checklist-icon">✓</div>
+            <span>Final export-ready files</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-box">
+        <h3>Project Timeline</h3>
+        <p>
+          Monthly delivery will be planned in advance. Content can be shared weekly or batch-wise depending on your preference and approval flow.
+        </p>
+      </div>
+    </section>
+
+    <!-- Optional Add-ons -->
+    <section class="addons">
+      <div class="section-header">
+        <h2>Optional Add-ons</h2>
+        <p>Custom additions to scale your plan as you grow.</p>
+      </div>
+
+      <div class="addons-grid">
+        <div class="addon-card">
+          <div class="addon-tag">Content Add-on</div>
+          <h4 class="addon-name">Extra Reel</h4>
+          <p class="addon-desc">Add a custom single short-form video edit to your calendar.</p>
+          <div class="addon-price">₹1,500 – ₹2,500 <span style="font-size: 11px; font-weight: 500; color: var(--color-secondary);">each</span></div>
+        </div>
+
+        <div class="addon-card">
+          <div class="addon-tag">Content Add-on</div>
+          <h4 class="addon-name">Extra Post</h4>
+          <p class="addon-desc">Add an extra designed single or carousel graphic post.</p>
+          <div class="addon-price">₹800 – ₹1,200 <span style="font-size: 11px; font-weight: 500; color: var(--color-secondary);">each</span></div>
+        </div>
+
+        <div class="addon-card">
+          <div class="addon-tag">Premium</div>
+          <h4 class="addon-name">Performance Extras</h4>
+          <p class="addon-desc">Ad creatives, video shoots, page management, and advanced campaigns.</p>
+          <div class="addon-price">Quoted Separately</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA Area -->
+    <section class="final-cta">
+      <h2>Recommended Plan for The Pet Partner</h2>
+      <p>
+        The Essential Social Growth Plan is ideal for building a polished and consistent online presence while keeping the monthly budget practical.
+      </p>
+      <button id="approve-btn" class="btn-primary">Approve Monthly Plan</button>
+    </section>
+
+  </main>
+
+  <!-- Interactive toast notification -->
+  <div id="toast" class="toast-notification">
+    <div class="toast-content">
+      <div class="toast-icon">✓</div>
+      <div class="toast-text">
+        <h4>Plan Approved!</h4>
+        <p>We are initiating the onboarding calendar for The Pet Partner.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('approve-btn').addEventListener('click', function() {
+      const toast = document.getElementById('toast');
+      toast.style.display = 'block';
+      
+      // Update button visual state
+      this.textContent = 'Approved!';
+      this.style.backgroundColor = '#34c759';
+      this.style.borderColor = '#34c759';
+      
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateY(10px)';
+        toast.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        setTimeout(() => {
+          toast.style.display = 'none';
+          toast.style.opacity = '1';
+          toast.style.transform = 'none';
+          toast.style.transition = 'none';
+        }, 500);
+      }, 4000);
+    });
+  </script>
+
+</body>
+</html>

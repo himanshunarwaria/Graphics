@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Listing Proposal</title>
+
+  <!-- Google Fonts for premium typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --font-heading: 'Plus Jakarta Sans', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --color-primary: #0f172a;
+      --color-secondary: #1e293b;
+      --color-accent: #facc15;
+      --color-accent-hover: #eab308;
+      --color-success: #10b981;
+      --color-success-bg: #ecfdf5;
+      --color-success-border: #a7f3d0;
+      --color-text-dark: #111827;
+      --color-text-muted: #64748b;
+      --color-text-light: #cbd5e1;
+      --color-bg-light: #f8fafc;
+      --color-bg-page: #f1f5f9;
+      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+      --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+      --shadow-lg: 0 20px 25px -5px rgba(15, 23, 42, 0.08), 0 10px 10px -5px rgba(15, 23, 42, 0.04);
+      --shadow-xl: 0 25px 50px -12px rgba(15, 23, 42, 0.15);
+      --border-radius-lg: 24px;
+      --border-radius-xl: 32px;
+      --transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--color-bg-page);
+      color: var(--color-text-dark);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .proposal-page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+      color: #ffffff;
+      border-radius: var(--border-radius-xl);
+      padding: 70px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-xl);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(250, 204, 21, 0.15) 0%, rgba(250, 204, 21, 0) 70%);
+      border-radius: 50%;
+      top: -150px;
+      right: -100px;
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0) 70%);
+      border-radius: 50%;
+      bottom: -120px;
+      left: -100px;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--color-accent);
+      color: var(--color-primary);
+      padding: 8px 20px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 24px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      box-shadow: 0 4px 12px rgba(250, 204, 21, 0.3);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.03); }
+      100% { transform: scale(1); }
+    }
+
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(34px, 5.5vw, 56px);
+      line-height: 1.1;
+      font-weight: 800;
+      margin-bottom: 20px;
+      letter-spacing: -1.5px;
+      background: linear-gradient(120deg, #ffffff 60%, #e2e8f0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: 0 auto;
+      color: var(--color-text-light);
+      font-size: 18px;
+      font-weight: 400;
+    }
+
+    /* Price Card overlapping Hero */
+    .price-card {
+      background: #ffffff;
+      max-width: 540px;
+      margin: -60px auto 40px;
+      padding: 40px 30px;
+      border-radius: var(--border-radius-lg);
+      text-align: center;
+      position: relative;
+      z-index: 5;
+      box-shadow: 0 30px 60px rgba(15, 23, 42, 0.12);
+      border: 1px solid #f1f5f9;
+      transition: var(--transition-base);
+    }
+
+    .price-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 35px 70px rgba(15, 23, 42, 0.18);
+    }
+
+    .price-card .label {
+      color: var(--color-text-muted);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 12px;
+    }
+
+    .price {
+      font-family: var(--font-heading);
+      font-size: 64px;
+      font-weight: 800;
+      color: var(--color-primary);
+      line-height: 1;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: baseline;
+      gap: 4px;
+    }
+
+    .price span {
+      font-family: var(--font-body);
+      font-size: 18px;
+      color: var(--color-text-muted);
+      font-weight: 600;
+    }
+
+    .price-note {
+      color: #475569;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .highlight {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--color-success-bg);
+      color: var(--color-success);
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      border: 1px solid var(--color-success-border);
+    }
+
+    /* Sections */
+    .section {
+      margin-top: 48px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .section-title h2 {
+      font-family: var(--font-heading);
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--color-primary);
+      margin-bottom: 10px;
+      letter-spacing: -0.8px;
+    }
+
+    .section-title p {
+      color: var(--color-text-muted);
+      font-size: 17px;
+    }
+
+    /* Grid layout for cards */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: var(--border-radius-lg);
+      border: 1px solid #e2e8f0;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition-base);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+      border-color: #cbd5e1;
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      background: var(--color-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 10px rgba(250, 204, 21, 0.2);
+    }
+
+    .card h3 {
+      font-family: var(--font-heading);
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--color-primary);
+    }
+
+    .card p {
+      color: var(--color-text-muted);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    /* Scope Section (Dark Mode theme) */
+    .scope-box {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #ffffff;
+      border-radius: var(--border-radius-xl);
+      padding: 48px;
+      margin-top: 48px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .scope-box::before {
+      content: "";
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(250, 204, 21, 0.08) 0%, rgba(250, 204, 21, 0) 70%);
+      border-radius: 50%;
+      top: -50px;
+      left: -50px;
+      pointer-events: none;
+    }
+
+    .scope-box h2 {
+      font-family: var(--font-heading);
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 28px;
+      letter-spacing: -0.8px;
+      text-align: center;
+    }
+
+    .scope-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 16px;
+      list-style: none;
+    }
+
+    .scope-list li {
+      background: rgba(255, 255, 255, 0.04);
+      padding: 16px 20px;
+      border-radius: 16px;
+      color: #e2e8f0;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 15px;
+      transition: var(--transition-base);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .scope-list li:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(250, 204, 21, 0.3);
+      transform: translateX(3px);
+    }
+
+    .scope-list li strong {
+      color: var(--color-accent);
+      font-weight: 700;
+    }
+
+    /* Estimate section */
+    .estimate {
+      background: #ffffff;
+      border-radius: var(--border-radius-xl);
+      padding: 48px;
+      margin-top: 48px;
+      border: 1px solid #e2e8f0;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .estimate-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 32px;
+    }
+
+    .estimate-box {
+      background: var(--color-bg-light);
+      padding: 30px;
+      border-radius: 20px;
+      border: 1px solid #e2e8f0;
+      text-align: center;
+      transition: var(--transition-base);
+    }
+
+    .estimate-box:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: #cbd5e1;
+    }
+
+    .estimate-box h3 {
+      font-family: var(--font-heading);
+      color: var(--color-primary);
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .estimate-box .amount {
+      font-family: var(--font-heading);
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--color-success);
+      margin-bottom: 6px;
+    }
+
+    .estimate-box p {
+      color: var(--color-text-muted);
+      font-size: 15px;
+    }
+
+    /* Timeline Banner */
+    .timeline {
+      margin-top: 48px;
+      background: linear-gradient(135deg, #facc15 0%, #f59e0b 100%);
+      border-radius: var(--border-radius-xl);
+      padding: 40px;
+      text-align: center;
+      color: #111827;
+      box-shadow: 0 10px 25px rgba(245, 158, 11, 0.2);
+    }
+
+    .timeline h2 {
+      font-family: var(--font-heading);
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 10px;
+      letter-spacing: -0.8px;
+    }
+
+    .timeline p {
+      font-size: 17px;
+      font-weight: 600;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Call to Action */
+    .cta {
+      margin-top: 48px;
+      text-align: center;
+      background: #ffffff;
+      padding: 48px 32px;
+      border-radius: var(--border-radius-xl);
+      border: 1px solid #e2e8f0;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .cta h2 {
+      font-family: var(--font-heading);
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      color: var(--color-primary);
+      letter-spacing: -0.8px;
+    }
+
+    .cta p {
+      color: var(--color-text-muted);
+      max-width: 650px;
+      margin: 0 auto 30px;
+      font-size: 16px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--color-primary);
+      color: #ffffff;
+      text-decoration: none;
+      padding: 16px 36px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 16px;
+      transition: var(--transition-base);
+      border: 2px solid var(--color-primary);
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #ffffff;
+      color: var(--color-primary);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.15);
+    }
+
+    .btn:active {
+      transform: translateY(-1px);
+    }
+
+    .footer-note {
+      text-align: center;
+      color: var(--color-text-muted);
+      font-size: 14px;
+      margin-top: 32px;
+      padding: 0 20px;
+    }
+
+    /* Modal / Success notification styling for interaction */
+    .success-alert {
+      display: none;
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #ffffff;
+      border-left: 5px solid var(--color-success);
+      padding: 16px 24px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      z-index: 100;
+      align-items: center;
+      gap: 12px;
+      animation: slideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes slideIn {
+      from { transform: translateY(100%) scale(0.9); opacity: 0; }
+      to { transform: translateY(0) scale(1); opacity: 1; }
+    }
+
+    .success-alert-icon {
+      font-size: 20px;
+    }
+
+    .success-alert-text h4 {
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+    
+    .success-alert-text p {
+      font-size: 13px;
+      color: var(--color-text-muted);
+    }
+
+    /* Responsiveness adjustments */
+    @media (max-width: 768px) {
+      .proposal-page {
+        padding: 24px 16px;
+      }
+
+      .hero {
+        padding: 50px 20px;
+        border-radius: var(--border-radius-lg);
+      }
+
+      .price-card {
+        margin-top: -45px;
+        padding: 30px 20px;
+      }
+
+      .price {
+        font-size: 52px;
+      }
+
+      .estimate-row {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .scope-box,
+      .estimate,
+      .timeline,
+      .cta {
+        padding: 30px 20px;
+        border-radius: var(--border-radius-lg);
+      }
+
+      .scope-box h2,
+      .estimate h2,
+      .timeline h2,
+      .cta h2 {
+        font-size: 26px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="proposal-page">
+
+    <!-- Hero Banner -->
+    <section class="hero">
+      <div class="hero-content">
+        <div class="badge">Limited Project Pricing</div>
+        <h1>Product Listing Proposal for 50–100 Products</h1>
+        <p>
+          A clean, affordable, and professional listing setup service designed to help your products look better,
+          read better, and get uploaded faster with a consistent presentation.
+        </p>
+      </div>
+    </section>
+
+    <!-- Pricing Summary Card -->
+    <section class="price-card">
+      <div class="label">Flat Listing Price</div>
+      <div class="price">₹500 <span>/ listing</span></div>
+      <p class="price-note">
+        Includes listing setup with up to <strong>2 product images per listing</strong>.
+      </p>
+      <div class="highlight">✨ Best for 50–100 listings</div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section">
+      <div class="section-title">
+        <h2>What You Get</h2>
+        <p>Simple, focused, and value-packed listing support.</p>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <div class="card-icon">🛒</div>
+          <h3>Product Upload</h3>
+          <p>Each product will be properly added with its name, price, category, and basic product details.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">🖼️</div>
+          <h3>2 Images Included</h3>
+          <p>Up to 2 product images will be uploaded and placed neatly for every listing.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">✍️</div>
+          <h3>Basic Content Formatting</h3>
+          <p>Product titles and available details will be arranged in a clean and readable format.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">✅</div>
+          <h3>Quality Check</h3>
+          <p>Each listing will be reviewed to avoid missing details, image errors, or formatting issues.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Detailed Scope -->
+    <section class="scope-box">
+      <h2>Scope Included at ₹500 Per Listing</h2>
+
+      <ul class="scope-list">
+        <li><strong>01.</strong> Product name/title entry</li>
+        <li><strong>02.</strong> Price and basic details entry</li>
+        <li><strong>03.</strong> Category selection</li>
+        <li><strong>04.</strong> Up to 2 images per listing</li>
+        <li><strong>05.</strong> Basic description formatting</li>
+        <li><strong>06.</strong> Variant details, if provided</li>
+        <li><strong>07.</strong> Basic SKU/details entry</li>
+        <li><strong>08.</strong> Final listing check</li>
+      </ul>
+    </section>
+
+    <!-- Project Estimate Calculation -->
+    <section class="estimate">
+      <div class="section-title">
+        <h2>Estimated Project Cost</h2>
+        <p>Transparent pricing based on the number of listings.</p>
+      </div>
+
+      <div class="estimate-row">
+        <div class="estimate-box">
+          <h3>For 50 Listings</h3>
+          <div class="amount">₹25,000</div>
+          <p>At ₹500 per product listing</p>
+        </div>
+
+        <div class="estimate-box">
+          <h3>For 100 Listings</h3>
+          <div class="amount">₹50,000</div>
+          <p>At ₹500 per product listing</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Timeline Banner -->
+    <section class="timeline">
+      <h2>Estimated Delivery</h2>
+      <p>10–20 listings per day depending on product details, image readiness, and platform requirements.</p>
+    </section>
+
+    <!-- Call To Action -->
+    <section class="cta">
+      <h2>Recommended for Fast & Affordable Listing Setup</h2>
+      <p>
+        This plan is ideal when you need 50–100 products listed quickly, neatly, and professionally
+        without increasing the overall project budget.
+      </p>
+      <button id="approve-btn" class="btn">Approve ₹500 / Listing Plan</button>
+    </section>
+
+    <!-- Additional disclaimer -->
+    <p class="footer-note">
+      Note: Advanced SEO copywriting, image editing, additional images, and premium content creation can be quoted separately if required.
+    </p>
+
+  </main>
+
+  <!-- Interactive toast confirmation -->
+  <div id="toast" class="success-alert">
+    <div class="success-alert-icon">🎉</div>
+    <div class="success-alert-text">
+      <h4>Proposal Approved!</h4>
+      <p>Thank you. We will set up your project workflow now.</p>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('approve-btn').addEventListener('click', function() {
+      const toast = document.getElementById('toast');
+      toast.style.display = 'flex';
+      
+      // Basic feedback animation for clicking the button
+      this.textContent = 'Approved!';
+      this.style.backgroundColor = '#10b981';
+      this.style.borderColor = '#10b981';
+      this.style.color = '#ffffff';
+      
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateY(20px) scale(0.95)';
+        toast.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        setTimeout(() => {
+          toast.style.display = 'none';
+          toast.style.opacity = '1';
+          toast.style.transform = 'none';
+          toast.style.transition = 'none';
+        }, 500);
+      }, 4000);
+    });
+  </script>
+
+</body>
+</html>
