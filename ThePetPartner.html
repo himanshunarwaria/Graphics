@@ -224,156 +224,7 @@
       font-weight: 500;
     }
 
-    /* Floating Mockup Area */
-    .hero-mockup-wrapper {
-      position: relative;
-      max-width: 500px;
-      height: 300px;
-      margin: 40px auto 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .mockup-card {
-      position: absolute;
-      background: var(--bg-card);
-      border-radius: 18px;
-      border: 1px solid var(--color-border);
-      box-shadow: var(--shadow-mockup);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      padding: 16px;
-      transition: var(--transition-slow);
-    }
-
-    .mockup-card:hover {
-      z-index: 10 !important;
-      transform: scale(1.05) rotate(0deg) !important;
-    }
-
-    .card-left {
-      width: 170px;
-      height: 180px;
-      background: #fffcf5;
-      border-color: #f6ebd5;
-      transform: translate(-120px, 10px) rotate(-8deg);
-      z-index: 1;
-      animation: float-left 6s ease-in-out infinite;
-    }
-
-    .card-center {
-      width: 190px;
-      height: 220px;
-      background: #2c201c;
-      border-color: #3d2d27;
-      color: #ffffff;
-      transform: translate(0, -10px) rotate(0deg);
-      z-index: 3;
-      animation: float-center 6s ease-in-out infinite;
-    }
-
-    .card-right {
-      width: 170px;
-      height: 180px;
-      background: #f1f8f5;
-      border-color: #dbece4;
-      transform: translate(120px, 15px) rotate(8deg);
-      z-index: 2;
-      animation: float-right 6s ease-in-out infinite;
-    }
-
-    /* Mockup Interior Details */
-    .mockup-header {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: var(--color-accent);
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    .card-center .mockup-header {
-      color: #ff9b8c;
-    }
-
-    .mockup-title {
-      font-size: 13px;
-      font-weight: 800;
-      line-height: 1.3;
-      letter-spacing: -0.01em;
-      color: var(--color-primary);
-      margin-bottom: auto;
-    }
-
-    .card-center .mockup-title {
-      color: #ffffff;
-      font-size: 15px;
-    }
-
-    .mockup-graphic {
-      height: 60px;
-      border-radius: 8px;
-      background: rgba(0,0,0,0.02);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 12px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card-center .mockup-graphic {
-      height: 80px;
-      background: rgba(255,255,255,0.05);
-      border: 1px dashed rgba(255,255,255,0.1);
-    }
-
-    .play-btn {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.9);
-      color: #2c201c;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
-
-    .play-btn svg {
-      transform: translateX(1px);
-    }
-
-    .swipe-indicator {
-      font-size: 12px;
-      align-self: flex-end;
-      color: var(--color-secondary);
-      margin-top: 8px;
-    }
-
-    .card-left .mockup-graphic svg {
-      color: #f26b50;
-      opacity: 0.8;
-    }
-
-    /* Keyframes for Hero Floating Cards */
-    @keyframes float-left {
-      0%, 100% { transform: translate(-120px, 10px) rotate(-8deg); }
-      50% { transform: translate(-120px, -2px) rotate(-6deg); }
-    }
-    @keyframes float-center {
-      0%, 100% { transform: translate(0, -10px) rotate(0deg) scale(1); }
-      50% { transform: translate(0, -22px) rotate(1deg) scale(1.02); }
-    }
-    @keyframes float-right {
-      0%, 100% { transform: translate(120px, 15px) rotate(8deg); }
-      50% { transform: translate(120px, 5px) rotate(6deg); }
-    }
+    /* Floating Mockup Area Removed */
 
     /* Section Headings */
     .section-header {
@@ -523,131 +374,7 @@
       background: #2c2c2e;
     }
 
-    /* Deliverables Section */
-    .deliverables-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
-
-    .deliverables-card {
-      background: var(--bg-card);
-      border-radius: var(--radius-card);
-      border: 1px solid var(--color-border);
-      padding: 32px;
-      box-shadow: var(--shadow-subtle);
-      transition: var(--transition-base);
-      display: flex;
-      flex-direction: column;
-    }
-
-    .deliverables-card:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-premium);
-    }
-
-    .deliverables-visual {
-      height: 120px;
-      border-radius: var(--radius-inner);
-      background: var(--bg-page);
-      border: 1px dashed var(--color-border);
-      margin-bottom: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      position: relative;
-    }
-
-    /* Mini graphics preview */
-    .graphics-preview {
-      display: flex;
-      gap: 12px;
-    }
-
-    .mini-graphic-card {
-      width: 54px;
-      height: 54px;
-      background: var(--bg-card);
-      border-radius: 8px;
-      border: 1px solid var(--color-border);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.02);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
-
-    .mini-graphic-card:nth-child(1) { transform: rotate(-5deg); background: #fffcf5; }
-    .mini-graphic-card:nth-child(2) { transform: translateY(-4px); background: #fdf4f0; }
-    .mini-graphic-card:nth-child(3) { transform: rotate(5deg); background: #f1f8f5; }
-
-    .mini-graphic-card svg {
-      color: var(--color-accent);
-      opacity: 0.7;
-    }
-
-    /* Mini reels preview */
-    .reels-preview {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 80px;
-      height: 90px;
-      background: #2c201c;
-      border-radius: 8px;
-      padding: 8px;
-      position: relative;
-    }
-
-    .reels-preview .reel-play {
-      margin: auto;
-      width: 24px;
-      height: 24px;
-      background: #ffffff;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #2c201c;
-    }
-
-    .reels-preview .reel-play svg {
-      transform: translateX(0.5px);
-    }
-
-    .reels-preview .reel-wave {
-      display: flex;
-      gap: 3px;
-      width: 100%;
-      height: 12px;
-      align-items: flex-end;
-      margin-top: 4px;
-    }
-
-    .reels-preview .reel-wave-bar {
-      flex: 1;
-      height: 50%;
-      background: rgba(255,255,255,0.4);
-      border-radius: 2px;
-    }
-    .reels-preview .reel-wave-bar:nth-child(2) { height: 80%; background: #ff9b8c;}
-    .reels-preview .reel-wave-bar:nth-child(3) { height: 40%; }
-    .reels-preview .reel-wave-bar:nth-child(4) { height: 90%; }
-    .reels-preview .reel-wave-bar:nth-child(5) { height: 60%; }
-
-    .deliverables-card h3 {
-      font-size: 18px;
-      font-weight: 800;
-      letter-spacing: -0.01em;
-      margin-bottom: 8px;
-    }
-
-    .deliverables-card p {
-      font-size: 13px;
-      color: var(--color-secondary);
-      line-height: 1.5;
-    }
+    /* Deliverables Section CSS Removed */
 
     /* Design Focus Section */
     .focus-grid {
@@ -802,72 +529,7 @@
       line-height: 1.5;
     }
 
-    /* Toast Notification CSS */
-    .toast-container {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      z-index: 1000;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      pointer-events: none;
-    }
-
-    .toast {
-      background: var(--bg-card);
-      border: 1px solid var(--color-border);
-      border-radius: 16px;
-      padding: 16px 20px;
-      box-shadow: 0 16px 36px rgba(0,0,0,0.08);
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      min-width: 320px;
-      max-width: 400px;
-      pointer-events: auto;
-      transform: translateY(20px);
-      opacity: 0;
-      animation: toast-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-      transition: var(--transition-base);
-    }
-
-    @keyframes toast-in {
-      to { transform: translateY(0); opacity: 1; }
-    }
-
-    .toast.toast-out {
-      transform: translateY(20px);
-      opacity: 0;
-    }
-
-    .toast-icon-circle {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: var(--color-success-light);
-      color: var(--color-success);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .toast-content {
-      flex-grow: 1;
-    }
-
-    .toast-title {
-      font-size: 13.5px;
-      font-weight: 700;
-      color: var(--color-primary);
-      margin-bottom: 2px;
-    }
-
-    .toast-message {
-      font-size: 12px;
-      color: var(--color-secondary);
-    }
+    /* Toast CSS Removed */
 
     /* Responsive adjustments */
     @media (max-width: 768px) {
@@ -887,82 +549,6 @@
         margin-bottom: 16px;
       }
 
-      .hero-mockup-wrapper {
-        max-width: 340px;
-        height: 230px;
-        margin-top: 24px;
-      }
-
-      .mockup-card {
-        padding: 12px;
-      }
-
-      .card-left {
-        width: 120px;
-        height: 130px;
-        transform: translate(-80px, 10px) rotate(-8deg);
-        animation: float-left-mobile 6s ease-in-out infinite;
-      }
-
-      .card-center {
-        width: 140px;
-        height: 160px;
-        transform: translate(0, -10px) rotate(0deg);
-        animation: float-center-mobile 6s ease-in-out infinite;
-      }
-
-      .card-right {
-        width: 120px;
-        height: 130px;
-        transform: translate(80px, 15px) rotate(8deg);
-        animation: float-right-mobile 6s ease-in-out infinite;
-      }
-
-      .mockup-title {
-        font-size: 9px;
-      }
-
-      .card-center .mockup-title {
-        font-size: 10.5px;
-      }
-
-      .mockup-header {
-        font-size: 8px;
-        margin-bottom: 4px;
-      }
-
-      .mockup-graphic {
-        height: 40px;
-        margin-top: 6px;
-      }
-
-      .card-center .mockup-graphic {
-        height: 50px;
-      }
-
-      .play-btn {
-        width: 20px;
-        height: 20px;
-      }
-
-      .play-btn svg {
-        width: 10px;
-        height: 10px;
-      }
-
-      @keyframes float-left-mobile {
-        0%, 100% { transform: translate(-80px, 10px) rotate(-8deg); }
-        50% { transform: translate(-80px, 2px) rotate(-6deg); }
-      }
-      @keyframes float-center-mobile {
-        0%, 100% { transform: translate(0, -10px) rotate(0deg) scale(1); }
-        50% { transform: translate(0, -18px) rotate(1deg) scale(1.02); }
-      }
-      @keyframes float-right-mobile {
-        0%, 100% { transform: translate(80px, 15px) rotate(8deg); }
-        50% { transform: translate(80px, 7px) rotate(6deg); }
-      }
-
       .pricing-card {
         padding: 32px 24px;
       }
@@ -970,11 +556,6 @@
       .pricing-features-list {
         grid-template-columns: 1fr;
         gap: 12px;
-      }
-
-      .deliverables-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
       }
 
       .focus-grid {
@@ -1038,49 +619,6 @@
         <a href="#pricing" class="btn-primary">View Creative Package</a>
         <div class="hero-secondary-text">Designed for Instagram & Facebook</div>
       </div>
-
-      <!-- Floating Visual Mockup -->
-      <div class="hero-mockup-wrapper">
-        <div class="mockup-card card-left">
-          <div class="mockup-header">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="10" height="10">
-              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.4 4.4 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.6 3 22 5.4 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-            </svg>
-            Tips
-          </div>
-          <div class="mockup-title">3 Simple Ways to Keep Pets Hydrated</div>
-          <div class="mockup-graphic">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
-              <path d="M12 14c-1.933 0-3.5 1.567-3.5 3.5S10.067 21 12 21s3.5-1.567 3.5-3.5S13.933 14 12 14z"/>
-            </svg>
-          </div>
-        </div>
-
-        <div class="mockup-card card-center">
-          <div class="mockup-header">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="10" height="10">
-              <path d="M8 5v14l11-7z"/>
-            </svg>
-            Reel preview
-          </div>
-          <div class="mockup-title">A Day in the Life of a Happy Puppy 🐾</div>
-          <div class="mockup-graphic">
-            <div class="play-btn">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12">
-                <path d="M8 5v14l11-7z"/>
-              </svg>
-            </div>
-          </div>
-        </div>
-
-        <div class="mockup-card card-right">
-          <div class="mockup-header">
-            Swipe
-          </div>
-          <div class="mockup-title">Choosing The Ideal Diet For Senior Cats</div>
-          <div class="swipe-indicator">→</div>
-        </div>
-      </div>
     </section>
 
     <!-- Pricing Section (Main Focus) -->
@@ -1140,67 +678,11 @@
         </ul>
 
         <div class="pricing-divider"></div>
-        <p class="pricing-card-footer-desc">This package is ideal for maintaining a professional social media presence without unnecessary complexity. The focus is simple: premium graphics, polished reels, and consistent brand presentation.</p>
-
-        <button class="pricing-card-btn approve-btn">Approve Creative Plan</button>
+        <p class="pricing-card-footer-desc" style="margin-bottom: 0;">This package is ideal for maintaining a professional social media presence without unnecessary complexity. The focus is simple: premium graphics, polished reels, and consistent brand presentation.</p>
       </div>
     </section>
 
-    <!-- Deliverables Section -->
-    <section>
-      <div class="section-header">
-        <h2>Visual Deliverables</h2>
-        <p>Expertly structured assets crafted specifically for your audience.</p>
-      </div>
 
-      <div class="deliverables-grid">
-        <div class="deliverables-card">
-          <div class="deliverables-visual">
-            <div class="graphics-preview">
-              <div class="mini-graphic-card">
-                <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14">
-                  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.4 4.4 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3c3.08 0 5.5 2.42 5.5 5.5 0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                </svg>
-              </div>
-              <div class="mini-graphic-card">
-                <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14">
-                  <path d="M12 14c-1.933 0-3.5 1.567-3.5 3.5S10.067 21 12 21s3.5-1.567 3.5-3.5S13.933 14 12 14z"/>
-                </svg>
-              </div>
-              <div class="mini-graphic-card">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="12" height="12">
-                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-                  <line x1="9" y1="3" x2="9" y2="21"/>
-                </svg>
-              </div>
-            </div>
-          </div>
-          <h3>12 Premium Graphics</h3>
-          <p>Clean static or carousel post designs created with premium layouts, strong visual hierarchy, and brand-consistent styling.</p>
-        </div>
-
-        <div class="deliverables-card">
-          <div class="deliverables-visual">
-            <div class="reels-preview">
-              <div class="reel-play">
-                <svg viewBox="0 0 24 24" fill="currentColor" width="10" height="10">
-                  <path d="M8 5v14l11-7z"/>
-                </svg>
-              </div>
-              <div class="reel-wave">
-                <div class="reel-wave-bar"></div>
-                <div class="reel-wave-bar"></div>
-                <div class="reel-wave-bar"></div>
-                <div class="reel-wave-bar"></div>
-                <div class="reel-wave-bar"></div>
-              </div>
-            </div>
-          </div>
-          <h3>6 Reels</h3>
-          <p>Short reel edits with clean cuts, captions/text overlays, simple motion, and polished visual presentation.</p>
-        </div>
-      </div>
-    </section>
 
     <!-- Design Focus Section -->
     <section>
@@ -1294,53 +776,9 @@
     <!-- Final CTA Section -->
     <section class="final-cta">
       <h2>Recommended for a Clean & Premium Brand Presence</h2>
-      <p>A focused monthly creative package for The Pet Partner to maintain a polished and consistent visual identity online.</p>
-      <button class="btn-primary approve-btn">Approve Creative Plan</button>
+      <p style="margin-bottom: 0;">A focused monthly creative package for The Pet Partner to maintain a polished and consistent visual identity online.</p>
     </section>
 
   </main>
-
-  <!-- Toast Notification Container -->
-  <div class="toast-container" id="toastContainer"></div>
-
-  <script>
-    // Toast Notification Script
-    const approveButtons = document.querySelectorAll('.approve-btn');
-    const toastContainer = document.getElementById('toastContainer');
-
-    approveButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        showToast('Creative Plan Approved', 'We will reach out soon to coordinate the kick-off process.');
-      });
-    });
-
-    function showToast(title, message) {
-      // Create toast element
-      const toast = document.createElement('div');
-      toast.className = 'toast';
-      toast.innerHTML = `
-        <div class="toast-icon-circle">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
-            <polyline points="20 6 9 17 4 12"/>
-          </svg>
-        </div>
-        <div class="toast-content">
-          <div class="toast-title">${title}</div>
-          <div class="toast-message">${message}</div>
-        </div>
-      `;
-
-      // Append to container
-      toastContainer.appendChild(toast);
-
-      // Remove after 4 seconds
-      setTimeout(() => {
-        toast.classList.add('toast-out');
-        setTimeout(() => {
-          toast.remove();
-        }, 400); // match CSS transition speed
-      }, 4000);
-    }
-  </script>
 </body>
 </html>
