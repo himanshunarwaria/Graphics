@@ -1,34 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Pet Partner — Social Media Growth Proposal</title>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Pet Partner — Creative Design Proposal</title>
+  
+  <!-- Premium Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
   <style>
-    /* CSS Variables for design system */
+    /* CSS Variables & Design System */
     :root {
-      --bg-page: #f9f9fb;
+      --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      
+      /* Colors */
+      --bg-page: #fafafa;
       --bg-card: #ffffff;
-      --color-primary: #1c1c1e;
-      --color-secondary: #86868b;
-      --color-accent-peach: #fff5f0;
-      --color-accent-peach-text: #e05638;
-      --color-accent-green: #f0fdf4;
-      --color-accent-green-text: #166534;
-      --color-accent-blue: #f0f7ff;
-      --color-accent-blue-text: #1d4ed8;
-      --color-accent-beige: #fafaf9;
-      --color-accent-beige-text: #78716c;
-      --color-border: #e5e5ea;
-      --color-border-light: #f2f2f7;
-      --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      --shadow-card: 0 8px 30px rgba(0, 0, 0, 0.02), 0 1px 2px rgba(0, 0, 0, 0.02);
-      --shadow-card-hover: 0 16px 40px rgba(0, 0, 0, 0.05), 0 2px 8px rgba(0, 0, 0, 0.02);
-      --radius-card: 22px;
+      --color-primary: #1d1d1f;
+      --color-secondary: #6e6e73;
+      --color-accent: #ff725e; /* Warm coral/peach */
+      --color-accent-light: #fff5f2;
+      --color-accent-border: #fcdad2;
+      --color-border: rgba(0, 0, 0, 0.08);
+      --color-border-light: rgba(0, 0, 0, 0.04);
+      --color-success: #34c759;
+      --color-success-light: #f0fdf4;
+      
+      /* Spacing & Borders */
+      --radius-card: 24px;
       --radius-button: 999px;
-      --radius-inner: 14px;
+      --radius-inner: 16px;
+      
+      /* Shadows */
+      --shadow-subtle: 0 8px 30px rgba(0, 0, 0, 0.015);
+      --shadow-premium: 0 20px 48px rgba(0, 0, 0, 0.03);
+      --shadow-mockup: 0 30px 60px rgba(44, 32, 28, 0.06);
+      
+      /* Transitions */
       --transition-base: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-slow: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     /* Reset & Base Styles */
@@ -44,741 +56,973 @@
     }
 
     body {
-      font-family: var(--font-sans);
+      font-family: var(--font-family);
       background-color: var(--bg-page);
       color: var(--color-primary);
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
     }
 
-    /* Navbar / Header */
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 24px 40px;
-      max-width: 1200px;
+    /* Selection Style */
+    ::selection {
+      background-color: var(--color-accent-light);
+      color: var(--color-accent);
+    }
+
+    /* Layout Wrapper */
+    .proposal-container {
+      max-width: 980px;
       margin: 0 auto;
-      background: rgba(249, 249, 251, 0.8);
-      backdrop-filter: blur(20px);
+      padding: 0 24px;
+    }
+
+    /* Section Utility */
+    section {
+      padding: 100px 0;
+      border-bottom: 1px solid var(--color-border-light);
+    }
+
+    section:last-of-type {
+      border-bottom: none;
+    }
+
+    /* Sticky Translucent Header */
+    .navbar {
       position: sticky;
       top: 0;
       z-index: 100;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+      background: rgba(250, 250, 250, 0.75);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid var(--color-border-light);
+      transition: var(--transition-base);
+    }
+
+    .navbar-container {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
     .navbar-logo {
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 700;
-      letter-spacing: -0.5px;
+      letter-spacing: -0.02em;
       display: flex;
       align-items: center;
       gap: 8px;
+      color: var(--color-primary);
+      text-decoration: none;
     }
 
-    .navbar-logo span {
-      background: var(--color-accent-peach-text);
-      color: #fff;
-      padding: 4px 8px;
-      border-radius: 8px;
-      font-size: 12px;
-      font-weight: 800;
+    .navbar-logo svg {
+      color: var(--color-accent);
     }
 
     .navbar-status {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      font-size: 13px;
+      gap: 8px;
+      font-size: 12px;
       font-weight: 600;
       color: var(--color-secondary);
-      background: #ffffff;
+      background: var(--bg-card);
       padding: 6px 14px;
       border-radius: 999px;
       border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-subtle);
     }
 
     .navbar-status::before {
       content: "";
-      width: 8px;
-      height: 8px;
-      background-color: #34c759;
+      width: 6px;
+      height: 6px;
+      background-color: var(--color-success);
       border-radius: 50%;
       display: inline-block;
-    }
-
-    /* Layout Wrapper */
-    .proposal-container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 24px 100px;
+      box-shadow: 0 0 8px var(--color-success);
     }
 
     /* Hero Section */
     .hero {
       text-align: center;
-      padding: 80px 0 60px;
-      max-width: 840px;
-      margin: 0 auto;
+      padding: 90px 0 60px;
     }
 
     .hero-badge {
       display: inline-block;
-      background: #f2f2f7;
-      color: var(--color-primary);
-      padding: 8px 18px;
+      background: var(--color-accent-light);
+      color: var(--color-accent);
+      padding: 6px 14px;
       border-radius: 999px;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: -0.1px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
       margin-bottom: 24px;
+      border: 1px solid var(--color-accent-border);
     }
 
     .hero h1 {
-      font-size: clamp(38px, 6vw, 64px);
+      font-size: clamp(34px, 5vw, 54px);
       font-weight: 800;
-      line-height: 1.08;
-      letter-spacing: -2px;
-      margin-bottom: 24px;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
       color: var(--color-primary);
     }
 
     .hero p {
-      font-size: clamp(17px, 2.5vw, 21px);
-      line-height: 1.45;
+      font-size: clamp(16px, 2vw, 19px);
+      line-height: 1.5;
       color: var(--color-secondary);
       font-weight: 400;
-      margin-bottom: 36px;
-      max-width: 720px;
+      margin-bottom: 32px;
+      max-width: 640px;
       margin-left: auto;
       margin-right: auto;
     }
 
     .hero-actions {
       display: flex;
-      justify-content: center;
-      gap: 16px;
-      margin-bottom: 80px;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 48px;
     }
 
-    /* Buttons */
     .btn-primary {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       background: var(--color-primary);
       color: #ffffff;
       text-decoration: none;
-      padding: 16px 32px;
+      padding: 14px 28px;
       border-radius: var(--radius-button);
       font-weight: 600;
-      font-size: 16px;
+      font-size: 15px;
       transition: var(--transition-base);
       border: 1px solid var(--color-primary);
       cursor: pointer;
     }
 
     .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
       background: #2c2c2e;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
-    .btn-secondary {
-      display: inline-block;
-      background: #ffffff;
-      color: var(--color-primary);
-      text-decoration: none;
-      padding: 16px 32px;
-      border-radius: var(--radius-button);
-      font-weight: 600;
-      font-size: 16px;
-      transition: var(--transition-base);
+    .hero-secondary-text {
+      font-size: 12px;
+      color: var(--color-secondary);
+      font-weight: 500;
+    }
+
+    /* Floating Mockup Area */
+    .hero-mockup-wrapper {
+      position: relative;
+      max-width: 500px;
+      height: 300px;
+      margin: 40px auto 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .mockup-card {
+      position: absolute;
+      background: var(--bg-card);
+      border-radius: 18px;
       border: 1px solid var(--color-border);
-      cursor: pointer;
+      box-shadow: var(--shadow-mockup);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      padding: 16px;
+      transition: var(--transition-slow);
     }
 
-    .btn-secondary:hover {
-      background: #f5f5f7;
-      transform: translateY(-2px);
+    .mockup-card:hover {
+      z-index: 10 !important;
+      transform: scale(1.05) rotate(0deg) !important;
     }
 
+    .card-left {
+      width: 170px;
+      height: 180px;
+      background: #fffcf5;
+      border-color: #f6ebd5;
+      transform: translate(-120px, 10px) rotate(-8deg);
+      z-index: 1;
+      animation: float-left 6s ease-in-out infinite;
+    }
 
+    .card-center {
+      width: 190px;
+      height: 220px;
+      background: #2c201c;
+      border-color: #3d2d27;
+      color: #ffffff;
+      transform: translate(0, -10px) rotate(0deg);
+      z-index: 3;
+      animation: float-center 6s ease-in-out infinite;
+    }
 
-    /* Section titles */
+    .card-right {
+      width: 170px;
+      height: 180px;
+      background: #f1f8f5;
+      border-color: #dbece4;
+      transform: translate(120px, 15px) rotate(8deg);
+      z-index: 2;
+      animation: float-right 6s ease-in-out infinite;
+    }
+
+    /* Mockup Interior Details */
+    .mockup-header {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .card-center .mockup-header {
+      color: #ff9b8c;
+    }
+
+    .mockup-title {
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      color: var(--color-primary);
+      margin-bottom: auto;
+    }
+
+    .card-center .mockup-title {
+      color: #ffffff;
+      font-size: 15px;
+    }
+
+    .mockup-graphic {
+      height: 60px;
+      border-radius: 8px;
+      background: rgba(0,0,0,0.02);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-center .mockup-graphic {
+      height: 80px;
+      background: rgba(255,255,255,0.05);
+      border: 1px dashed rgba(255,255,255,0.1);
+    }
+
+    .play-btn {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.9);
+      color: #2c201c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .play-btn svg {
+      transform: translateX(1px);
+    }
+
+    .swipe-indicator {
+      font-size: 12px;
+      align-self: flex-end;
+      color: var(--color-secondary);
+      margin-top: 8px;
+    }
+
+    .card-left .mockup-graphic svg {
+      color: #f26b50;
+      opacity: 0.8;
+    }
+
+    /* Keyframes for Hero Floating Cards */
+    @keyframes float-left {
+      0%, 100% { transform: translate(-120px, 10px) rotate(-8deg); }
+      50% { transform: translate(-120px, -2px) rotate(-6deg); }
+    }
+    @keyframes float-center {
+      0%, 100% { transform: translate(0, -10px) rotate(0deg) scale(1); }
+      50% { transform: translate(0, -22px) rotate(1deg) scale(1.02); }
+    }
+    @keyframes float-right {
+      0%, 100% { transform: translate(120px, 15px) rotate(8deg); }
+      50% { transform: translate(120px, 5px) rotate(6deg); }
+    }
+
+    /* Section Headings */
     .section-header {
-      margin-bottom: 40px;
       text-align: center;
+      margin-bottom: 48px;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .section-header h2 {
-      font-size: clamp(28px, 4.5vw, 40px);
+      font-size: clamp(26px, 3.5vw, 36px);
       font-weight: 800;
-      letter-spacing: -1.2px;
+      letter-spacing: -0.02em;
       color: var(--color-primary);
       margin-bottom: 8px;
     }
 
     .section-header p {
-      font-size: 17px;
+      font-size: 15px;
       color: var(--color-secondary);
+      font-weight: 400;
     }
 
-    /* Package Section Styling */
-    .package-container {
-      margin-bottom: 100px;
+    /* Pricing Section (Main Focus) */
+    .pricing-section {
+      background: var(--bg-secondary);
+      margin: 0 -24px;
+      padding: 100px 24px;
     }
 
     .pricing-card {
-      background: #ffffff;
+      background: var(--bg-card);
       border-radius: var(--radius-card);
       border: 1px solid var(--color-border);
-      padding: 48px;
-      box-shadow: var(--shadow-card);
-      max-width: 800px;
+      padding: 40px;
+      box-shadow: var(--shadow-premium);
+      max-width: 600px;
       margin: 0 auto;
+      position: relative;
       transition: var(--transition-base);
     }
 
     .pricing-card:hover {
-      box-shadow: var(--shadow-card-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.05);
     }
 
-    .pricing-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 32px;
-      border-bottom: 1px solid var(--color-border-light);
-      padding-bottom: 24px;
-    }
-
-    .package-tag {
-      background: var(--color-accent-peach);
-      color: var(--color-accent-peach-text);
-      padding: 6px 14px;
-      border-radius: 99px;
-      font-size: 12px;
-      font-weight: 700;
+    .pricing-card-badge {
       display: inline-block;
-      margin-bottom: 10px;
+      background: var(--color-accent-light);
+      color: var(--color-accent);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 99px;
+      margin-bottom: 16px;
+      border: 1px solid var(--color-accent-border);
     }
 
-    .pricing-header h3 {
-      font-size: 28px;
+    .pricing-card-title {
+      font-size: 24px;
       font-weight: 800;
-      letter-spacing: -0.5px;
+      letter-spacing: -0.01em;
+      margin-bottom: 6px;
     }
 
-    .pricing-header .price-value {
+    .pricing-card-price {
       font-size: 32px;
       font-weight: 800;
       color: var(--color-primary);
-      text-align: right;
+      letter-spacing: -0.02em;
+      margin-top: 12px;
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
     }
 
-    .pricing-header .price-sub {
+    .pricing-card-price span {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--color-secondary);
+    }
+
+    .pricing-card-desc {
       font-size: 14px;
       color: var(--color-secondary);
       font-weight: 500;
+      margin-bottom: 28px;
     }
 
-    .package-features {
+    .pricing-card-footer-desc {
+      font-size: 13.5px;
+      color: var(--color-secondary);
+      line-height: 1.55;
+      margin-bottom: 28px;
+      font-weight: 400;
+      text-align: left;
+    }
+
+    .pricing-divider {
+      height: 1px;
+      background: var(--color-border-light);
+      margin-bottom: 28px;
+    }
+
+    .pricing-features-list {
+      list-style: none;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 16px;
-      list-style: none;
-      margin-bottom: 36px;
+      margin-bottom: 32px;
     }
 
-    .package-features li {
-      font-size: 15px;
+    .pricing-features-list li {
+      font-size: 14px;
       color: var(--color-primary);
       font-weight: 500;
       display: flex;
-      align-items: center;
-      gap: 10px;
+      align-items: flex-start;
+      gap: 8px;
+      line-height: 1.35;
     }
 
-    .package-features li::before {
-      content: "✓";
-      color: #34c759;
-      font-weight: 800;
-      font-size: 16px;
+    .pricing-features-list li svg {
+      color: var(--color-accent);
+      flex-shrink: 0;
+      margin-top: 2px;
     }
 
-    .pricing-pitch {
-      background: var(--color-accent-blue);
+    .pricing-card-btn {
+      width: 100%;
+      padding: 14px;
       border-radius: var(--radius-inner);
-      padding: 24px;
-      border: 1px solid rgba(29, 78, 216, 0.05);
-    }
-
-    .pricing-pitch p {
       font-size: 15px;
-      line-height: 1.6;
-      color: #1e3a8a;
-      font-weight: 500;
+      font-weight: 600;
+      background: var(--color-primary);
+      color: #ffffff;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition-base);
     }
 
-    /* Breakdown Section */
-    .breakdown {
-      margin-bottom: 100px;
+    .pricing-card-btn:hover {
+      background: #2c2c2e;
     }
 
-    .breakdown-grid {
+    /* Deliverables Section */
+    .deliverables-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 24px;
     }
 
-    .breakdown-card {
-      background: #ffffff;
+    .deliverables-card {
+      background: var(--bg-card);
       border-radius: var(--radius-card);
-      border: 1px solid var(--color-border-light);
-      padding: 36px;
-      box-shadow: var(--shadow-card);
+      border: 1px solid var(--color-border);
+      padding: 32px;
+      box-shadow: var(--shadow-subtle);
       transition: var(--transition-base);
-    }
-
-    .breakdown-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-card-hover);
-    }
-
-    .breakdown-card .icon-label {
-      width: 48px;
-      height: 48px;
-      border-radius: 16px;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
+      flex-direction: column;
+    }
+
+    .deliverables-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-premium);
+    }
+
+    .deliverables-visual {
+      height: 120px;
+      border-radius: var(--radius-inner);
+      background: var(--bg-page);
+      border: 1px dashed var(--color-border);
       margin-bottom: 24px;
-    }
-
-    .breakdown-card.posts .icon-label {
-      background: var(--color-accent-peach);
-    }
-
-    .breakdown-card.reels .icon-label {
-      background: var(--color-accent-blue);
-    }
-
-    .breakdown-card h3 {
-      font-size: 22px;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-      margin-bottom: 12px;
-    }
-
-    .breakdown-card p {
-      font-size: 15px;
-      line-height: 1.6;
-      color: var(--color-secondary);
-    }
-
-    /* Content Ideas Grid */
-    .ideas {
-      margin-bottom: 100px;
-    }
-
-    .ideas-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-
-    .idea-card {
-      background: #ffffff;
-      border-radius: var(--radius-card);
-      border: 1px solid var(--color-border-light);
-      padding: 28px;
-      box-shadow: var(--shadow-card);
-      transition: var(--transition-base);
-    }
-
-    .idea-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-card-hover);
-    }
-
-    .idea-card-header {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 14px;
-    }
-
-    .idea-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 10px;
-      background: #f2f2f7;
       display: flex;
       align-items: center;
       justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Mini graphics preview */
+    .graphics-preview {
+      display: flex;
+      gap: 12px;
+    }
+
+    .mini-graphic-card {
+      width: 54px;
+      height: 54px;
+      background: var(--bg-card);
+      border-radius: 8px;
+      border: 1px solid var(--color-border);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .mini-graphic-card:nth-child(1) { transform: rotate(-5deg); background: #fffcf5; }
+    .mini-graphic-card:nth-child(2) { transform: translateY(-4px); background: #fdf4f0; }
+    .mini-graphic-card:nth-child(3) { transform: rotate(5deg); background: #f1f8f5; }
+
+    .mini-graphic-card svg {
+      color: var(--color-accent);
+      opacity: 0.7;
+    }
+
+    /* Mini reels preview */
+    .reels-preview {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 80px;
+      height: 90px;
+      background: #2c201c;
+      border-radius: 8px;
+      padding: 8px;
+      position: relative;
+    }
+
+    .reels-preview .reel-play {
+      margin: auto;
+      width: 24px;
+      height: 24px;
+      background: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2c201c;
+    }
+
+    .reels-preview .reel-play svg {
+      transform: translateX(0.5px);
+    }
+
+    .reels-preview .reel-wave {
+      display: flex;
+      gap: 3px;
+      width: 100%;
+      height: 12px;
+      align-items: flex-end;
+      margin-top: 4px;
+    }
+
+    .reels-preview .reel-wave-bar {
+      flex: 1;
+      height: 50%;
+      background: rgba(255,255,255,0.4);
+      border-radius: 2px;
+    }
+    .reels-preview .reel-wave-bar:nth-child(2) { height: 80%; background: #ff9b8c;}
+    .reels-preview .reel-wave-bar:nth-child(3) { height: 40%; }
+    .reels-preview .reel-wave-bar:nth-child(4) { height: 90%; }
+    .reels-preview .reel-wave-bar:nth-child(5) { height: 60%; }
+
+    .deliverables-card h3 {
       font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      margin-bottom: 8px;
     }
 
-    .idea-card h3 {
-      font-size: 16px;
-      font-weight: 700;
-      letter-spacing: -0.3px;
-    }
-
-    .idea-card p {
-      font-size: 14px;
+    .deliverables-card p {
+      font-size: 13px;
       color: var(--color-secondary);
       line-height: 1.5;
     }
 
-    /* Why it works section (Dark premium glass layout) */
-    .why-works {
-      background: #1c1c1e;
-      color: #ffffff;
-      border-radius: var(--radius-card);
-      padding: 56px;
-      margin-bottom: 100px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .why-works::before {
-      content: "";
-      position: absolute;
-      width: 300px;
-      height: 300px;
-      background: radial-gradient(circle, rgba(224, 86, 56, 0.15) 0%, rgba(224, 86, 56, 0) 70%);
-      border-radius: 50%;
-      top: -100px;
-      right: -100px;
-      pointer-events: none;
-    }
-
-    .why-works-content {
-      max-width: 760px;
-      margin: 0 auto;
-      text-align: center;
-      position: relative;
-      z-index: 2;
-    }
-
-    .why-works h2 {
-      font-size: 32px;
-      font-weight: 800;
-      letter-spacing: -1px;
-      margin-bottom: 20px;
-    }
-
-    .why-works p {
-      font-size: 18px;
-      line-height: 1.6;
-      color: #aeaeb2;
-      font-weight: 400;
-    }
-
-    /* Deliverables Checklist & Timeline */
-    .checklist-timeline-container {
+    /* Design Focus Section */
+    .focus-grid {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 32px;
-      margin-bottom: 100px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
     }
 
-    .checklist-box {
-      background: #ffffff;
-      border-radius: var(--radius-card);
-      border: 1px solid var(--color-border-light);
-      padding: 40px;
-      box-shadow: var(--shadow-card);
-    }
-
-    .checklist-box h3 {
-      font-size: 22px;
-      font-weight: 800;
-      margin-bottom: 24px;
-      letter-spacing: -0.5px;
-    }
-
-    .checklist-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-
-    .checklist-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 15px;
-      font-weight: 550;
-    }
-
-    .checklist-icon {
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      background: var(--color-accent-green);
-      color: var(--color-accent-green-text);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      font-weight: 800;
-      flex-shrink: 0;
-    }
-
-    .timeline-box {
-      background: #ffffff;
-      border-radius: var(--radius-card);
-      border: 1px solid var(--color-border-light);
-      padding: 40px;
-      box-shadow: var(--shadow-card);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .timeline-box h3 {
-      font-size: 22px;
-      font-weight: 800;
-      margin-bottom: 16px;
-      letter-spacing: -0.5px;
-    }
-
-    .timeline-box p {
-      font-size: 15px;
-      line-height: 1.6;
-      color: var(--color-secondary);
-    }
-
-    /* Addons section */
-    .addons {
-      margin-bottom: 100px;
-    }
-
-    .addons-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .addon-card {
-      background: #ffffff;
+    .focus-card {
+      background: var(--bg-card);
       border-radius: var(--radius-card);
       border: 1px solid var(--color-border-light);
       padding: 24px;
-      box-shadow: var(--shadow-card);
+      box-shadow: var(--shadow-subtle);
       transition: var(--transition-base);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
     }
 
-    .addon-card:hover {
+    .focus-card:hover {
       transform: translateY(-2px);
-      box-shadow: var(--shadow-card-hover);
+      box-shadow: var(--shadow-premium);
     }
 
-    .addon-name {
+    .focus-icon-wrapper {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--color-accent-light);
+      color: var(--color-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      border: 1px solid var(--color-accent-border);
+    }
+
+    .focus-card h3 {
       font-size: 15px;
       font-weight: 700;
+      letter-spacing: -0.01em;
       margin-bottom: 8px;
     }
 
-    .addon-desc {
-      font-size: 13px;
+    .focus-card p {
+      font-size: 12.5px;
       color: var(--color-secondary);
-      margin-bottom: 16px;
+      line-height: 1.45;
     }
 
-    .addon-price {
-      font-size: 16px;
-      font-weight: 800;
-      color: var(--color-accent-peach-text);
-      margin-top: auto;
+    /* Process Section */
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      position: relative;
     }
 
-    .addon-tag {
-      font-size: 11px;
-      font-weight: 700;
-      background: #f2f2f7;
-      color: var(--color-secondary);
-      padding: 4px 8px;
-      border-radius: 6px;
-      align-self: flex-start;
-      margin-bottom: 10px;
-    }
-
-    /* Final CTA Area */
-    .final-cta {
-      background: #ffffff;
+    .process-step {
+      position: relative;
+      background: var(--bg-card);
       border-radius: var(--radius-card);
       border: 1px solid var(--color-border);
-      padding: 64px 40px;
+      padding: 28px;
+      box-shadow: var(--shadow-subtle);
+      z-index: 2;
+    }
+
+    .process-step-num {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--color-accent);
+      background: var(--color-accent-light);
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      border: 1px solid var(--color-accent-border);
+    }
+
+    .process-step h3 {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 8px;
+    }
+
+    .process-step p {
+      font-size: 12.5px;
+      color: var(--color-secondary);
+      line-height: 1.45;
+    }
+
+    /* Connecting timeline bar on desktop */
+    .process-steps::after {
+      content: "";
+      position: absolute;
+      top: 40px;
+      left: 10%;
+      right: 10%;
+      height: 1px;
+      background: var(--color-border);
+      z-index: 1;
+    }
+
+    /* Pricing Note Section */
+    .note-section {
+      background: var(--color-accent-light);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--color-accent-border);
+      padding: 24px 32px;
+      margin: 40px auto;
+      max-width: 760px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .note-icon {
+      color: var(--color-accent);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .note-text {
+      font-size: 13.5px;
+      line-height: 1.5;
+      color: var(--color-primary);
+      font-weight: 500;
+    }
+
+    /* Final CTA Section */
+    .final-cta {
       text-align: center;
-      max-width: 800px;
+      padding: 80px 0 100px;
+      max-width: 600px;
       margin: 0 auto;
-      box-shadow: var(--shadow-card-hover);
     }
 
     .final-cta h2 {
-      font-size: 32px;
+      font-size: clamp(26px, 3.5vw, 34px);
       font-weight: 800;
-      letter-spacing: -1px;
+      letter-spacing: -0.02em;
       margin-bottom: 12px;
     }
 
     .final-cta p {
-      font-size: 16px;
+      font-size: 15px;
       color: var(--color-secondary);
-      max-width: 550px;
-      margin: 0 auto 32px;
+      margin-bottom: 28px;
+      line-height: 1.5;
     }
 
-    /* Toast System */
-    .toast-notification {
-      display: none;
+    /* Toast Notification CSS */
+    .toast-container {
       position: fixed;
-      bottom: 32px;
-      right: 32px;
-      background: #ffffff;
-      border-radius: 16px;
-      border: 1px solid var(--color-border);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.1);
-      padding: 20px;
+      bottom: 24px;
+      right: 24px;
       z-index: 1000;
-      max-width: 380px;
-      animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      pointer-events: none;
     }
 
-    @keyframes slideUp {
-      from { transform: translateY(50px); opacity: 0; }
+    .toast {
+      background: var(--bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: 16px;
+      padding: 16px 20px;
+      box-shadow: 0 16px 36px rgba(0,0,0,0.08);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 320px;
+      max-width: 400px;
+      pointer-events: auto;
+      transform: translateY(20px);
+      opacity: 0;
+      animation: toast-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      transition: var(--transition-base);
+    }
+
+    @keyframes toast-in {
       to { transform: translateY(0); opacity: 1; }
     }
 
-    .toast-content {
-      display: flex;
-      gap: 14px;
-      align-items: center;
+    .toast.toast-out {
+      transform: translateY(20px);
+      opacity: 0;
     }
 
-    .toast-icon {
-      font-size: 24px;
-      background: var(--color-accent-green);
-      color: var(--color-accent-green-text);
-      width: 40px;
-      height: 40px;
+    .toast-icon-circle {
+      width: 32px;
+      height: 32px;
       border-radius: 50%;
+      background: var(--color-success-light);
+      color: var(--color-success);
       display: flex;
       align-items: center;
       justify-content: center;
+      flex-shrink: 0;
     }
 
-    .toast-text h4 {
-      font-size: 15px;
+    .toast-content {
+      flex-grow: 1;
+    }
+
+    .toast-title {
+      font-size: 13.5px;
       font-weight: 700;
+      color: var(--color-primary);
       margin-bottom: 2px;
     }
 
-    .toast-text p {
-      font-size: 13px;
+    .toast-message {
+      font-size: 12px;
       color: var(--color-secondary);
     }
 
     /* Responsive adjustments */
-    @media (max-width: 900px) {
-
-
-      .ideas-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .checklist-timeline-container {
-        grid-template-columns: 1fr;
-      }
-
-      .addons-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
     @media (max-width: 768px) {
-      .proposal-container {
-        padding: 0 16px 60px;
+      section {
+        padding: 64px 0;
       }
 
-      .navbar {
-        padding: 20px 16px;
+      .pricing-section {
+        padding: 64px 24px;
       }
 
       .hero {
-        padding: 50px 0 40px;
+        padding: 60px 0 40px;
       }
 
-      .hero-actions {
-        flex-direction: column;
-        gap: 12px;
-        align-items: stretch;
-        max-width: 320px;
-        margin: 0 auto 60px;
+      .hero h1 {
+        margin-bottom: 16px;
+      }
+
+      .hero-mockup-wrapper {
+        max-width: 340px;
+        height: 230px;
+        margin-top: 24px;
+      }
+
+      .mockup-card {
+        padding: 12px;
+      }
+
+      .card-left {
+        width: 120px;
+        height: 130px;
+        transform: translate(-80px, 10px) rotate(-8deg);
+        animation: float-left-mobile 6s ease-in-out infinite;
+      }
+
+      .card-center {
+        width: 140px;
+        height: 160px;
+        transform: translate(0, -10px) rotate(0deg);
+        animation: float-center-mobile 6s ease-in-out infinite;
+      }
+
+      .card-right {
+        width: 120px;
+        height: 130px;
+        transform: translate(80px, 15px) rotate(8deg);
+        animation: float-right-mobile 6s ease-in-out infinite;
+      }
+
+      .mockup-title {
+        font-size: 9px;
+      }
+
+      .card-center .mockup-title {
+        font-size: 10.5px;
+      }
+
+      .mockup-header {
+        font-size: 8px;
+        margin-bottom: 4px;
+      }
+
+      .mockup-graphic {
+        height: 40px;
+        margin-top: 6px;
+      }
+
+      .card-center .mockup-graphic {
+        height: 50px;
+      }
+
+      .play-btn {
+        width: 20px;
+        height: 20px;
+      }
+
+      .play-btn svg {
+        width: 10px;
+        height: 10px;
+      }
+
+      @keyframes float-left-mobile {
+        0%, 100% { transform: translate(-80px, 10px) rotate(-8deg); }
+        50% { transform: translate(-80px, 2px) rotate(-6deg); }
+      }
+      @keyframes float-center-mobile {
+        0%, 100% { transform: translate(0, -10px) rotate(0deg) scale(1); }
+        50% { transform: translate(0, -18px) rotate(1deg) scale(1.02); }
+      }
+      @keyframes float-right-mobile {
+        0%, 100% { transform: translate(80px, 15px) rotate(8deg); }
+        50% { transform: translate(80px, 7px) rotate(6deg); }
       }
 
       .pricing-card {
-        padding: 24px;
+        padding: 32px 24px;
       }
 
-      .package-features {
+      .pricing-features-list {
         grid-template-columns: 1fr;
+        gap: 12px;
       }
 
-      .pricing-header {
-        flex-direction: column;
+      .deliverables-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .focus-grid {
+        grid-template-columns: 1fr 1fr;
         gap: 16px;
       }
 
-      .pricing-header .price-value {
-        text-align: left;
-      }
-
-      .breakdown-grid {
+      .process-steps {
         grid-template-columns: 1fr;
+        gap: 24px;
       }
 
-      .ideas-grid {
-        grid-template-columns: 1fr;
+      .process-steps::after {
+        display: none;
       }
 
-      .addons-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .why-works {
-        padding: 32px 20px;
-      }
-
-      .final-cta {
-        padding: 40px 20px;
+      .note-section {
+        padding: 20px 24px;
       }
     }
 
-    @media (max-width: 500px) {
-      .checklist-grid {
+    @media (max-width: 480px) {
+      .focus-grid {
         grid-template-columns: 1fr;
+      }
+
+      .navbar-container {
+        padding: 16px;
+      }
+
+      .proposal-container {
+        padding: 0 16px;
       }
     }
   </style>
 </head>
-
 <body>
 
-  <!-- Sticky Apple-style navbar -->
+  <!-- Sticky Translucent Header -->
   <header class="navbar">
-    <div class="navbar-logo">
-      🐾 The Pet Partner
-    </div>
-    <div class="navbar-status">
-      Active Proposal
+    <div class="navbar-container">
+      <a href="#" class="navbar-logo">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" style="transform: translateY(-1px);">
+          <path d="M12 14c-1.933 0-3.5 1.567-3.5 3.5S10.067 21 12 21s3.5-1.567 3.5-3.5S13.933 14 12 14zm-4.5-4.5c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm9 0c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm-6.5-2c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm4 0c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z"/>
+        </svg>
+        The Pet Partner
+      </a>
+      <div class="navbar-status">Active Proposal</div>
     </div>
   </header>
 
@@ -786,232 +1030,317 @@
 
     <!-- Hero Section -->
     <section class="hero">
-      <div class="hero-badge">Social Media Growth Proposal</div>
-      <h1>Grow The Pet Partner with Premium Social Media Content</h1>
-      <p>
-        The Pet Partner needs a consistent and trustworthy social media presence because pet parents connect with brands emotionally before they buy. We recommend a monthly content package of 12 social media posts and 6 reels to stay active, educate pet owners, and build trust.
-      </p>
+      <div class="hero-badge">Creative Design Proposal</div>
+      <h1>Premium Social Media Creatives for The Pet Partner</h1>
+      <p>Minimal, polished, and brand-consistent graphics and reels designed to make The Pet Partner look premium, trustworthy, and visually memorable.</p>
+      
       <div class="hero-actions">
-        <a href="#package" class="btn-primary">View Monthly Package</a>
-        <a href="#ideas" class="btn-secondary">View Content Ideas</a>
+        <a href="#pricing" class="btn-primary">View Creative Package</a>
+        <div class="hero-secondary-text">Designed for Instagram & Facebook</div>
+      </div>
+
+      <!-- Floating Visual Mockup -->
+      <div class="hero-mockup-wrapper">
+        <div class="mockup-card card-left">
+          <div class="mockup-header">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="10" height="10">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.4 4.4 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.6 3 22 5.4 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+            Tips
+          </div>
+          <div class="mockup-title">3 Simple Ways to Keep Pets Hydrated</div>
+          <div class="mockup-graphic">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+              <path d="M12 14c-1.933 0-3.5 1.567-3.5 3.5S10.067 21 12 21s3.5-1.567 3.5-3.5S13.933 14 12 14z"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="mockup-card card-center">
+          <div class="mockup-header">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="10" height="10">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+            Reel preview
+          </div>
+          <div class="mockup-title">A Day in the Life of a Happy Puppy 🐾</div>
+          <div class="mockup-graphic">
+            <div class="play-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="mockup-card card-right">
+          <div class="mockup-header">
+            Swipe
+          </div>
+          <div class="mockup-title">Choosing The Ideal Diet For Senior Cats</div>
+          <div class="swipe-indicator">→</div>
+        </div>
       </div>
     </section>
 
-
-
-    <!-- Pricing / Package Section -->
-    <section id="package" class="package-container">
+    <!-- Pricing Section (Main Focus) -->
+    <section id="pricing" class="pricing-section">
       <div class="section-header">
-        <h2>Monthly Content Package</h2>
-        <p>Simple pricing with no hidden costs.</p>
+        <h2>Monthly Creative Design Plan</h2>
+        <p>The Pet Partner needs a clean and premium visual identity across social media. This monthly creative package is focused on designing high-quality graphics and reels that make the brand look polished, trustworthy, and consistent.</p>
       </div>
 
       <div class="pricing-card">
-        <div class="pricing-header">
-          <div>
-            <span class="package-tag">Primary Plan</span>
-            <h3>Essential Social Growth Plan</h3>
-          </div>
-          <div>
-            <div class="price-value">₹18,000 – ₹25,000</div>
-            <div class="price-sub">per month</div>
-          </div>
+        <span class="pricing-card-badge">Monthly Package</span>
+        <h3 class="pricing-card-title">Monthly Creative Design Plan</h3>
+        
+        <div class="pricing-card-price">
+          ₹12,000 – ₹15,000 <span>/ month</span>
         </div>
 
-        <ul class="package-features">
-          <li>12 designed social media posts</li>
-          <li>6 Instagram reels</li>
-          <li>Captions for all posts and reels</li>
-          <li>Basic hashtag suggestions</li>
-          <li>Monthly content planning</li>
-          <li>Brand-consistent creative direction</li>
+        <div class="pricing-divider"></div>
+
+        <ul class="pricing-features-list">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="14" height="14">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            12 premium social media post designs
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="14" height="14">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            6 reel edits/designs
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="14" height="14">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            Static or carousel creatives
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="14" height="14">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            Clean typography and layout
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="14" height="14">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            Brand-consistent design style
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="14" height="14">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            Export-ready files for Instagram and Facebook
+          </li>
         </ul>
 
-        <div class="pricing-pitch">
-          <p>
-            The Pet Partner needs a consistent and trustworthy social media presence because pet parents connect with brands emotionally before they buy.
-          </p>
-          <p style="margin-top: 12px;">
-            This plan is ideal for The Pet Partner because it balances quality, consistency, and affordability. The posts will help build authority and trust, while reels will improve reach and engagement.
-          </p>
-        </div>
+        <div class="pricing-divider"></div>
+        <p class="pricing-card-footer-desc">This package is ideal for maintaining a professional social media presence without unnecessary complexity. The focus is simple: premium graphics, polished reels, and consistent brand presentation.</p>
+
+        <button class="pricing-card-btn approve-btn">Approve Creative Plan</button>
       </div>
     </section>
 
-    <!-- Deliverables Breakdown Section -->
-    <section class="breakdown">
+    <!-- Deliverables Section -->
+    <section>
       <div class="section-header">
-        <h2>Package Breakdown</h2>
-        <p>A balanced delivery structure designed for engagement.</p>
+        <h2>Visual Deliverables</h2>
+        <p>Expertly structured assets crafted specifically for your audience.</p>
       </div>
 
-      <div class="breakdown-grid">
-        <div class="breakdown-card posts">
-          <div class="icon-label">🎨</div>
-          <h3>12 Social Media Posts</h3>
-          <p>Designed static/carousel posts focused on pet care tips, brand awareness, offers, testimonials, product/service highlights, and educational content.</p>
+      <div class="deliverables-grid">
+        <div class="deliverables-card">
+          <div class="deliverables-visual">
+            <div class="graphics-preview">
+              <div class="mini-graphic-card">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14">
+                  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.4 4.4 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3c3.08 0 5.5 2.42 5.5 5.5 0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+              </div>
+              <div class="mini-graphic-card">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14">
+                  <path d="M12 14c-1.933 0-3.5 1.567-3.5 3.5S10.067 21 12 21s3.5-1.567 3.5-3.5S13.933 14 12 14z"/>
+                </svg>
+              </div>
+              <div class="mini-graphic-card">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="12" height="12">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                  <line x1="9" y1="3" x2="9" y2="21"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <h3>12 Premium Graphics</h3>
+          <p>Clean static or carousel post designs created with premium layouts, strong visual hierarchy, and brand-consistent styling.</p>
         </div>
 
-        <div class="breakdown-card reels">
-          <div class="icon-label">📹</div>
+        <div class="deliverables-card">
+          <div class="deliverables-visual">
+            <div class="reels-preview">
+              <div class="reel-play">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="10" height="10">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+              </div>
+              <div class="reel-wave">
+                <div class="reel-wave-bar"></div>
+                <div class="reel-wave-bar"></div>
+                <div class="reel-wave-bar"></div>
+                <div class="reel-wave-bar"></div>
+                <div class="reel-wave-bar"></div>
+              </div>
+            </div>
+          </div>
           <h3>6 Reels</h3>
-          <p>Short-form video concepts designed to improve reach, engagement, and emotional connection with pet parents.</p>
+          <p>Short reel edits with clean cuts, captions/text overlays, simple motion, and polished visual presentation.</p>
         </div>
       </div>
     </section>
 
-    <!-- Content Ideas Section -->
-    <section id="ideas" class="ideas">
+    <!-- Design Focus Section -->
+    <section>
       <div class="section-header">
-        <h2>Content Ideas</h2>
-        <p>Strategic content pillars curated specifically for The Pet Partner.</p>
+        <h2>Design Focus</h2>
+        <p>An aesthetic framework tailored to elevate The Pet Partner brand.</p>
       </div>
 
-      <div class="ideas-grid">
-        <div class="idea-card">
-          <div class="idea-card-header">
-            <div class="idea-icon">💡</div>
-            <h3>Pet Care Tips</h3>
+      <div class="focus-grid">
+        <div class="focus-card">
+          <div class="focus-icon-wrapper">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+              <rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/>
+            </svg>
           </div>
-          <p>Educational posts and bite-sized guides for pet parents to establish your authority.</p>
+          <h3>Premium Layouts</h3>
+          <p>Clean, modern, and scroll-stopping designs.</p>
         </div>
 
-        <div class="idea-card">
-          <div class="idea-card-header">
-            <div class="idea-icon">🏷️</div>
-            <h3>Product/Service Highlights</h3>
+        <div class="focus-card">
+          <div class="focus-icon-wrapper">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+              <path d="M12 22C17.52 22 22 17.52 22 12S17.52 2 12 2 2 6.48 2 12s4.48 10 10 10zm0-18c4.41 0 8 3.59 8 8s-3.59 8-8 8-8-3.59-8-8 3.59-8 8-8z"/>
+              <circle cx="8" cy="10" r="1" fill="currentColor"/><circle cx="12" cy="7" r="1" fill="currentColor"/><circle cx="16" cy="10" r="1" fill="currentColor"/>
+            </svg>
           </div>
-          <p>Aesthetic showcases of what The Pet Partner offers, encouraging natural inquiries.</p>
+          <h3>Brand Consistency</h3>
+          <p>Same colors, typography, and visual tone across all creatives.</p>
         </div>
 
-        <div class="idea-card">
-          <div class="idea-card-header">
-            <div class="idea-icon">🤝</div>
-            <h3>Trust-Building Content</h3>
+        <div class="focus-card">
+          <div class="focus-icon-wrapper">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3c3.08 0 5.5 2.42 5.5 5.5 0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
           </div>
-          <p>Testimonials, before-after logs, client reviews, and heartfelt client stories.</p>
+          <h3>Pet-Friendly Aesthetic</h3>
+          <p>Soft, warm, trustworthy visuals suited for a pet brand.</p>
         </div>
 
-        <div class="idea-card">
-          <div class="idea-card-header">
-            <div class="idea-icon">🚀</div>
-            <h3>Reels for Reach</h3>
+        <div class="focus-card">
+          <div class="focus-icon-wrapper">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/>
+            </svg>
           </div>
-          <p>Short, trending, engaging video snippets to capture new viewers and build awareness.</p>
-        </div>
-
-        <div class="idea-card">
-          <div class="idea-card-header">
-            <div class="idea-icon">🎉</div>
-            <h3>Festive & Seasonal Posts</h3>
-          </div>
-          <p>Timely pet-friendly campaigns designed around holidays, events, and occasions.</p>
-        </div>
-
-        <div class="idea-card">
-          <div class="idea-card-header">
-            <div class="idea-icon">💛</div>
-            <h3>Brand Personality</h3>
-          </div>
-          <p>Warm, relatable behind-the-scenes content that introduces the team and pets behind the brand.</p>
+          <h3>Ready-to-Post Files</h3>
+          <p>Final creatives exported in social media-friendly formats.</p>
         </div>
       </div>
     </section>
 
-    <!-- Why This Plan Works -->
-    <section class="why-works">
-      <div class="why-works-content">
-        <h2>Why This Plan Works</h2>
-        <p>
-          For a pet brand, trust and emotional connection matter the most. This content plan helps The Pet Partner stay visible, helpful, and memorable. Instead of posting randomly, every piece of content will follow a clear direction: educate, engage, and convert pet parents into loyal customers.
-        </p>
-      </div>
-    </section>
-
-    <!-- Deliverables Checklist & Timeline -->
-    <section class="checklist-timeline-container">
-      <div class="checklist-box">
-        <h3>Deliverables List</h3>
-        <div class="checklist-grid">
-          <div class="checklist-item">
-            <div class="checklist-icon">✓</div>
-            <span>12 designed posts</span>
-          </div>
-          <div class="checklist-item">
-            <div class="checklist-icon">✓</div>
-            <span>6 reels concepts/edits</span>
-          </div>
-          <div class="checklist-item">
-            <div class="checklist-icon">✓</div>
-            <span>Captions for all posts</span>
-          </div>
-          <div class="checklist-item">
-            <div class="checklist-icon">✓</div>
-            <span>Basic hashtag set</span>
-          </div>
-          <div class="checklist-item">
-            <div class="checklist-icon">✓</div>
-            <span>Monthly content calendar</span>
-          </div>
-          <div class="checklist-item">
-            <div class="checklist-icon">✓</div>
-            <span>Brand-consistent design</span>
-          </div>
-          <div class="checklist-item">
-            <div class="checklist-icon">✓</div>
-            <span>Final export-ready files</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="timeline-box">
-        <h3>Project Timeline</h3>
-        <p>
-          Monthly delivery will be planned in advance. Content can be shared weekly or batch-wise depending on your preference and approval flow.
-        </p>
-      </div>
-    </section>
-
-    <!-- Optional Add-ons -->
-    <section class="addons">
+    <!-- Process Section -->
+    <section>
       <div class="section-header">
-        <h2>Optional Add-ons</h2>
-        <p>Custom additions to scale your plan as you grow.</p>
+        <h2>Design Process</h2>
+        <p>A streamlined workflow from concept to final delivery.</p>
       </div>
 
-      <div class="addons-grid">
-        <div class="addon-card">
-          <div class="addon-tag">Content Add-on</div>
-          <h4 class="addon-name">Extra Reel</h4>
-          <p class="addon-desc">Add a custom single short-form video edit to your calendar.</p>
-          <div class="addon-price">₹1,500 – ₹2,500 <span style="font-size: 11px; font-weight: 500; color: var(--color-secondary);">each</span></div>
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="process-step-num">1</div>
+          <h3>Content Input</h3>
+          <p>Client shares product/service details, images, offers, or references.</p>
         </div>
 
-        <div class="addon-card">
-          <div class="addon-tag">Content Add-on</div>
-          <h4 class="addon-name">Extra Post</h4>
-          <p class="addon-desc">Add an extra designed single or carousel graphic post.</p>
-          <div class="addon-price">₹800 – ₹1,200 <span style="font-size: 11px; font-weight: 500; color: var(--color-secondary);">each</span></div>
+        <div class="process-step">
+          <div class="process-step-num">2</div>
+          <h3>Creative Design</h3>
+          <p>We design premium posts and reels based on the monthly requirement.</p>
         </div>
 
-        <div class="addon-card">
-          <div class="addon-tag">Premium</div>
-          <h4 class="addon-name">Performance Extras</h4>
-          <p class="addon-desc">Ad creatives, video shoots, page management, and advanced campaigns.</p>
-          <div class="addon-price">Quoted Separately</div>
+        <div class="process-step">
+          <div class="process-step-num">3</div>
+          <h3>Final Delivery</h3>
+          <p>Files are shared in ready-to-upload format after approval.</p>
         </div>
       </div>
     </section>
 
-    <!-- Final CTA Area -->
+    <!-- Pricing Note Section -->
+    <div class="note-section">
+      <svg class="note-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+        <circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/>
+      </svg>
+      <div class="note-text">
+        This package is focused only on creative design and reel editing. Advanced ad campaigns, page handling, paid promotions, photoshoots, and influencer coordination are not included.
+      </div>
+    </div>
+
+    <!-- Final CTA Section -->
     <section class="final-cta">
-      <h2>Recommended Plan for The Pet Partner</h2>
-      <p>
-        The Essential Social Growth Plan is ideal for building a polished and consistent online presence while keeping the monthly budget practical.
-      </p>
+      <h2>Recommended for a Clean & Premium Brand Presence</h2>
+      <p>A focused monthly creative package for The Pet Partner to maintain a polished and consistent visual identity online.</p>
+      <button class="btn-primary approve-btn">Approve Creative Plan</button>
     </section>
 
   </main>
 
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script>
+    // Toast Notification Script
+    const approveButtons = document.querySelectorAll('.approve-btn');
+    const toastContainer = document.getElementById('toastContainer');
+
+    approveButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        showToast('Creative Plan Approved', 'We will reach out soon to coordinate the kick-off process.');
+      });
+    });
+
+    function showToast(title, message) {
+      // Create toast element
+      const toast = document.createElement('div');
+      toast.className = 'toast';
+      toast.innerHTML = `
+        <div class="toast-icon-circle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </div>
+        <div class="toast-content">
+          <div class="toast-title">${title}</div>
+          <div class="toast-message">${message}</div>
+        </div>
+      `;
+
+      // Append to container
+      toastContainer.appendChild(toast);
+
+      // Remove after 4 seconds
+      setTimeout(() => {
+        toast.classList.add('toast-out');
+        setTimeout(() => {
+          toast.remove();
+        }, 400); // match CSS transition speed
+      }, 4000);
+    }
+  </script>
 </body>
 </html>
