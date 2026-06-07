@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marketplace Product Photoshoot Guide</title>
+  <style>
+    :root{
+      --bg:#f5f5f7; --card:#fff; --text:#1d1d1f; --muted:#6e6e73;
+      --line:#d2d2d7; --blue:#0071e3; --green:#147a3d; --red:#b42318;
+      --soft:#fbfbfd;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; background:var(--bg); color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Arial,sans-serif;
+      letter-spacing:-.02em;
+    }
+    .page{max-width:1140px;margin:auto;padding:54px 22px 76px}
+    .hero{text-align:center;padding:46px 10px 44px}
+    .eyebrow{
+      display:inline-flex;padding:8px 14px;border-radius:999px;
+      background:rgba(0,113,227,.08);color:var(--blue);
+      font-size:13px;font-weight:800;margin-bottom:18px;
+    }
+    h1{font-size:clamp(38px,6vw,72px);line-height:.95;margin:0 auto 16px;max-width:820px;font-weight:850}
+    .subtitle{max-width:720px;margin:auto;color:var(--muted);font-size:20px;line-height:1.45;font-weight:520}
+    .print-btn{margin-top:28px;border:0;background:var(--text);color:white;padding:14px 22px;border-radius:999px;font-weight:800;cursor:pointer}
+    .grid{display:grid;gap:18px}.grid-3{grid-template-columns:repeat(3,1fr)}.grid-2{grid-template-columns:repeat(2,1fr)}.grid-4{grid-template-columns:repeat(4,1fr)}
+    .card{
+      background:var(--card);border:1px solid rgba(210,210,215,.65);border-radius:30px;
+      padding:28px;box-shadow:0 20px 54px rgba(0,0,0,.045);overflow:hidden;
+    }
+    .card h2{font-size:30px;line-height:1.05;margin:0 0 10px;font-weight:840}
+    .card h3{font-size:18px;margin:0 0 6px;line-height:1.1}
+    .card p{font-size:15.8px;line-height:1.45;margin:0;color:var(--muted);font-weight:520}
+    .stat{font-size:54px;line-height:.92;font-weight:900;margin-bottom:8px}
+    .tag{
+      display:inline-flex;padding:8px 12px;border-radius:999px;font-size:12.5px;
+      font-weight:850;margin-bottom:14px;
+    }
+    .blue{color:var(--blue);background:rgba(0,113,227,.08)}
+    .green{color:var(--green);background:rgba(20,122,61,.09)}
+    .red{color:var(--red);background:rgba(180,35,24,.08)}
+    .frame{
+      margin-top:22px;aspect-ratio:1/1;border-radius:30px;background:#fff;border:1px solid var(--line);
+      display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;
+    }
+    .safe{width:85%;height:85%;border:2px dashed rgba(0,113,227,.35);border-radius:26px;display:flex;align-items:center;justify-content:center}
+    .bottle{
+      width:38%;height:66%;border:2px solid #1d1d1f;border-radius:18px 18px 28px 28px;position:relative;background:linear-gradient(#fff,#f3f3f3);
+    }
+    .bottle:before{content:"";position:absolute;left:30%;top:-24%;width:40%;height:24%;background:#111;border-radius:50% 50% 10px 10px}
+    .label{position:absolute;left:14%;top:34%;width:72%;height:38%;border:1.5px solid #777;border-radius:4px}
+    .caption{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);background:rgba(29,29,31,.82);color:white;padding:8px 12px;border-radius:999px;font-size:12px;font-weight:800;white-space:nowrap}
+    .checklist{display:grid;gap:10px;margin-top:18px}
+    .item{display:flex;gap:10px;align-items:flex-start;background:var(--soft);border:1px solid rgba(210,210,215,.7);padding:12px 13px;border-radius:16px;font-size:14.5px;line-height:1.25;font-weight:720}
+    .icon{width:21px;height:21px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex:0 0 21px;font-size:12px;font-weight:900}
+    .ok{color:var(--green);background:rgba(20,122,61,.12)}.no{color:var(--red);background:rgba(180,35,24,.12)}
+    .shot{background:var(--card);border:1px solid rgba(210,210,215,.65);border-radius:24px;padding:18px;box-shadow:0 14px 36px rgba(0,0,0,.035)}
+    .shot-icon{height:88px;border-radius:18px;background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;margin-bottom:14px;position:relative}
+    .mini-product{width:34px;height:52px;border:2px solid #1d1d1f;border-radius:8px;background:#fafafa}
+    .side .mini-product{width:18px}.angle .mini-product{transform:skewY(-8deg) rotate(-5deg)}.close .mini-product{width:58px;height:36px}.pack .mini-product{width:48px;height:58px;border-radius:6px}.life .mini-product{box-shadow:16px 12px 0 #e8e8ed}
+    .shot h3{font-size:15px;margin:0 0 5px}.shot p{font-size:13.5px;line-height:1.35}
+    table{width:100%;border-collapse:collapse;margin-top:18px;border:1px solid var(--line);border-radius:18px;overflow:hidden}
+    td{padding:13px 14px;border-bottom:1px solid var(--line);font-size:14.5px;font-weight:650;background:#fff}
+    tr:last-child td{border-bottom:0}td:last-child{color:var(--muted);font-weight:620}
+    .bad-frame{margin-top:20px;aspect-ratio:1/1;border-radius:28px;background:linear-gradient(135deg,#fff1f1,#ededed);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+    .bad-frame .bottle{width:22%;height:38%;transform:rotate(-8deg)}
+    .sale{position:absolute;top:16px;left:16px;background:#ff3b30;color:white;padding:8px 12px;border-radius:999px;font-size:12px;font-weight:900}
+    .source{font-size:12.5px;color:var(--muted);line-height:1.45;margin-top:18px}
+    .footer{text-align:center;margin-top:32px;color:var(--muted);font-size:14px;font-weight:650}
+    @media(max-width:960px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}.page{padding-top:28px}}
+    @media print{body{background:#fff}.page{padding:20px}.card,.shot{box-shadow:none;break-inside:avoid}.print-btn{display:none}}
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div class="eyebrow">Amazon + Flipkart Photoshoot Brief</div>
+      <h1>Simple product photos. No confusion.</h1>
+      <p class="subtitle">Give this page to the photographer. Follow these exact rules for clean marketplace listing images.</p>
+      <button class="print-btn" onclick="window.print()">Print / Save as PDF</button>
+    </section>
+
+    <section class="grid grid-3">
+      <div class="card"><div class="stat">1:1</div><h3>Square images</h3><p>Use square frame for all listing images.</p></div>
+      <div class="card"><div class="stat">2000+</div><h3>Pixel target</h3><p>Export 2000 × 2000 px. Minimum 1000 px on longest side.</p></div>
+      <div class="card"><div class="stat">85%</div><h3>Product size</h3><p>Product should fill around 85% of the frame.</p></div>
+    </section>
+
+    <section class="grid grid-2" style="margin-top:18px">
+      <div class="card">
+        <span class="tag blue">Main Image Layout</span>
+        <h2>White background + centered product</h2>
+        <p>The main image should show only the product on pure white background. No props. No text. No design.</p>
+        <div class="frame">
+          <div class="safe"><div class="bottle"><div class="label"></div></div></div>
+          <div class="caption">Keep product inside 85% safe area</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="tag green">Main Image Checklist</span>
+        <h2>Must follow</h2>
+        <div class="checklist">
+          <div class="item"><span class="icon ok">✓</span>Background: pure white RGB 255,255,255 / #FFFFFF</div>
+          <div class="item"><span class="icon ok">✓</span>Product straight, centered, sharp, and fully visible</div>
+          <div class="item"><span class="icon ok">✓</span>Product fills around 85% of the image area</div>
+          <div class="item"><span class="icon ok">✓</span>Real product color must stay accurate</div>
+          <div class="item"><span class="icon ok">✓</span>Only show items included in the sale</div>
+        </div>
+        <table>
+          <tr><td>Recommended size</td><td>2000–3000 px longest side</td></tr>
+          <tr><td>Minimum size</td><td>1000 px longest side</td></tr>
+          <tr><td>Maximum size</td><td>Below 10,000 px per side</td></tr>
+          <tr><td>File size</td><td>Under 10 MB</td></tr>
+          <tr><td>Color profile</td><td>sRGB</td></tr>
+          <tr><td>Preferred format</td><td>JPEG / JPG</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <section class="card" style="margin-top:18px">
+      <span class="tag blue">Required Shot List</span>
+      <h2>Capture these product images</h2>
+      <p>Main image must stay clean. Secondary images can show details, packaging, lifestyle, and feature callouts.</p>
+
+      <div class="grid grid-4" style="margin-top:20px">
+        <div class="shot"><div class="shot-icon"><div class="mini-product"></div></div><h3>1. Front View</h3><p>Main image. White background.</p></div>
+        <div class="shot"><div class="shot-icon"><div class="mini-product"></div></div><h3>2. Back View</h3><p>Show back label and details.</p></div>
+        <div class="shot"><div class="shot-icon side"><div class="mini-product"></div></div><h3>3. Side View</h3><p>Show product depth and shape.</p></div>
+        <div class="shot"><div class="shot-icon angle"><div class="mini-product"></div></div><h3>4. 45° Angle</h3><p>Premium secondary hero shot.</p></div>
+        <div class="shot"><div class="shot-icon close"><div class="mini-product"></div></div><h3>5. Label Close-up</h3><p>Logo and text must be readable.</p></div>
+        <div class="shot"><div class="shot-icon close"><div class="mini-product"></div></div><h3>6. Texture Close-up</h3><p>Show material, finish, or surface.</p></div>
+        <div class="shot"><div class="shot-icon pack"><div class="mini-product"></div></div><h3>7. Packaging</h3><p>Show box/pack only if included.</p></div>
+        <div class="shot"><div class="shot-icon life"><div class="mini-product"></div></div><h3>8. Lifestyle</h3><p>Use-case image for secondary slot.</p></div>
+        <div class="shot"><div class="shot-icon"><div class="mini-product"></div></div><h3>9. Size Reference</h3><p>Show actual scale honestly.</p></div>
+        <div class="shot"><div class="shot-icon"><div class="mini-product"></div></div><h3>10. Dimension Image</h3><p>Clean measurements in secondary image.</p></div>
+        <div class="shot"><div class="shot-icon"><div class="mini-product"></div></div><h3>11. Pack Contents</h3><p>All items customer receives.</p></div>
+        <div class="shot"><div class="shot-icon close"><div class="mini-product"></div></div><h3>12. Detail Macro</h3><p>High-sharpness detail shot.</p></div>
+      </div>
+    </section>
+
+    <section class="grid grid-2" style="margin-top:18px">
+      <div class="card">
+        <span class="tag green">Correct</span>
+        <h2>Good main image</h2>
+        <p>White background, large product, no text, no props, clean shadow, sharp focus.</p>
+        <div class="frame"><div class="safe"><div class="bottle"><div class="label"></div></div></div></div>
+      </div>
+      <div class="card">
+        <span class="tag red">Wrong</span>
+        <h2>Do not shoot like this</h2>
+        <p>No sale badge, no small product, no tilted bottle, no dirty/grey background, no heavy shadow.</p>
+        <div class="bad-frame"><div class="sale">SALE</div><div class="bottle"><div class="label"></div></div></div>
+      </div>
+    </section>
+
+    <section class="grid grid-2" style="margin-top:18px">
+      <div class="card">
+        <span class="tag red">Strict Don’ts</span>
+        <h2>Never use in main image</h2>
+        <div class="checklist">
+          <div class="item"><span class="icon no">×</span>Text, discount, offer, badge, or graphic overlay</div>
+          <div class="item"><span class="icon no">×</span>Watermark, logo overlay, website, phone number, WhatsApp</div>
+          <div class="item"><span class="icon no">×</span>Extra props or items not included with product</div>
+          <div class="item"><span class="icon no">×</span>Blurry photo, low resolution, AI-looking edits</div>
+          <div class="item"><span class="icon no">×</span>Wrong color, over-saturation, unrealistic retouching</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="tag blue">Shoot Setup</span>
+        <h2>Photographer instructions</h2>
+        <div class="checklist">
+          <div class="item"><span class="icon ok">✓</span>Use soft diffused light, not harsh direct flash</div>
+          <div class="item"><span class="icon ok">✓</span>Clean product before every shot</div>
+          <div class="item"><span class="icon ok">✓</span>Check focus at 100% zoom before finalizing</div>
+          <div class="item"><span class="icon ok">✓</span>Keep same lighting and size across all images</div>
+          <div class="item"><span class="icon ok">✓</span>Retouch dust only; do not change product shape/color</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" style="margin-top:18px">
+      <span class="tag blue">Final Delivery</span>
+      <h2>Files photographer should deliver</h2>
+      <div class="checklist">
+        <div class="item"><span class="icon ok">✓</span>12 edited JPG files in 2000 × 2000 px</div>
+        <div class="item"><span class="icon ok">✓</span>All files under 10 MB each</div>
+        <div class="item"><span class="icon ok">✓</span>sRGB color profile</div>
+        <div class="item"><span class="icon ok">✓</span>Clean filenames: 01_front, 02_back, 03_side, 04_angle, etc.</div>
+        <div class="item"><span class="icon ok">✓</span>Keep original high-resolution master files separately</div>
+      </div>
+      <p class="source">
+        Source basis: Amazon Seller Central product image guidance and Squareshot Amazon product image dimension guide.
+      </p>
+    </section>
+
+    <p class="footer">Final rule: product must look clean, premium, accurate, and exactly like what customer will receive.</p>
+  </main>
+</body>
+</html>
