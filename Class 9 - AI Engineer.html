@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f7f8fc" />
+  <title>AI Engineer Roadmap — Class 9</title>
+  <style>
+    :root{
+      --bg:#f7f8fc;
+      --card:#ffffff;
+      --text:#172033;
+      --muted:#667085;
+      --line:#e7eaf0;
+      --accent:#5b5ce2;
+      --accent-soft:#eeeeff;
+      --green:#1f9d68;
+      --green-soft:#eaf8f1;
+      --yellow:#a56600;
+      --yellow-soft:#fff6dd;
+      --shadow:0 10px 30px rgba(23,32,51,.07);
+      --radius:22px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+
+    body{
+      margin:0;
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.55;
+    }
+
+    .wrap{
+      width:min(980px, calc(100% - 32px));
+      margin:auto;
+    }
+
+    header{
+      padding:72px 0 42px;
+      text-align:center;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      background:var(--accent-soft);
+      color:var(--accent);
+      border-radius:999px;
+      font-size:.88rem;
+      font-weight:750;
+      margin-bottom:18px;
+    }
+
+    h1{
+      margin:0 auto;
+      max-width:780px;
+      font-size:clamp(2.35rem, 6vw, 4.6rem);
+      line-height:.98;
+      letter-spacing:-.055em;
+    }
+
+    .lead{
+      max-width:690px;
+      margin:20px auto 0;
+      color:var(--muted);
+      font-size:clamp(1rem, 2vw, 1.16rem);
+    }
+
+    .hero-note{
+      margin:28px auto 0;
+      max-width:650px;
+      background:var(--green-soft);
+      color:#176343;
+      padding:15px 18px;
+      border-radius:16px;
+      font-weight:700;
+    }
+
+    section{padding:26px 0}
+
+    .section-head{
+      margin-bottom:18px;
+    }
+
+    .eyebrow{
+      color:var(--accent);
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-size:.74rem;
+      font-weight:850;
+      margin-bottom:7px;
+    }
+
+    h2{
+      margin:0;
+      font-size:clamp(1.6rem, 3vw, 2.25rem);
+      letter-spacing:-.035em;
+      line-height:1.05;
+    }
+
+    .sub{
+      margin:8px 0 0;
+      color:var(--muted);
+    }
+
+    .start-card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:24px;
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:22px;
+      align-items:center;
+    }
+
+    .start-card h3{
+      margin:0 0 9px;
+      font-size:1.35rem;
+    }
+
+    .start-card p{
+      margin:0;
+      color:var(--muted);
+    }
+
+    .pill{
+      white-space:nowrap;
+      background:var(--accent);
+      color:white;
+      padding:12px 16px;
+      border-radius:14px;
+      font-weight:800;
+      font-size:.92rem;
+    }
+
+    .today-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+      margin-top:16px;
+    }
+
+    .mini{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:18px;
+    }
+
+    .mini .num{
+      width:34px;
+      height:34px;
+      display:grid;
+      place-items:center;
+      border-radius:10px;
+      background:var(--accent-soft);
+      color:var(--accent);
+      font-weight:900;
+      margin-bottom:12px;
+    }
+
+    .mini strong{
+      display:block;
+      margin-bottom:5px;
+    }
+
+    .mini span{
+      color:var(--muted);
+      font-size:.93rem;
+    }
+
+    .timeline{
+      display:grid;
+      gap:13px;
+    }
+
+    .step{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:20px;
+      display:grid;
+      grid-template-columns:110px 1fr;
+      gap:20px;
+      align-items:start;
+    }
+
+    .year{
+      font-size:.83rem;
+      font-weight:850;
+      color:var(--accent);
+      background:var(--accent-soft);
+      padding:9px 10px;
+      border-radius:12px;
+      text-align:center;
+    }
+
+    .step h3{
+      margin:0 0 6px;
+      font-size:1.15rem;
+    }
+
+    .step p{
+      margin:0;
+      color:var(--muted);
+    }
+
+    .tags{
+      margin-top:12px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+
+    .tag{
+      font-size:.82rem;
+      padding:6px 9px;
+      border:1px solid var(--line);
+      background:#fafbfc;
+      border-radius:999px;
+      color:#465064;
+      font-weight:650;
+    }
+
+    .routine{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:14px;
+    }
+
+    .routine-card,
+    .rule-card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:22px;
+    }
+
+    .days{
+      margin-top:14px;
+      display:grid;
+      gap:9px;
+    }
+
+    .day{
+      display:flex;
+      justify-content:space-between;
+      gap:16px;
+      padding:11px 0;
+      border-bottom:1px dashed var(--line);
+    }
+
+    .day:last-child{border-bottom:0}
+
+    .day span:first-child{font-weight:800}
+    .day span:last-child{color:var(--muted);text-align:right}
+
+    .rule-card{
+      background:var(--yellow-soft);
+      border-color:#f3e4b6;
+    }
+
+    .rule-card h3{
+      margin:0 0 8px;
+      color:#714900;
+    }
+
+    .rule-card p{
+      margin:0;
+      color:#725b29;
+    }
+
+    .projects{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:14px;
+    }
+
+    .project{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:18px;
+    }
+
+    .project small{
+      color:var(--accent);
+      font-weight:850;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+    }
+
+    .project h3{
+      margin:7px 0 5px;
+      font-size:1.05rem;
+    }
+
+    .project p{
+      margin:0;
+      color:var(--muted);
+      font-size:.92rem;
+    }
+
+    .final-card{
+      text-align:center;
+      margin:28px 0 60px;
+      background:var(--text);
+      color:white;
+      padding:32px 24px;
+      border-radius:26px;
+    }
+
+    .final-card p{
+      max-width:650px;
+      margin:10px auto 0;
+      color:#cfd5df;
+    }
+
+    .path{
+      margin:18px auto 0;
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:8px;
+      max-width:760px;
+    }
+
+    .path span{
+      background:rgba(255,255,255,.09);
+      padding:8px 10px;
+      border-radius:999px;
+      font-size:.85rem;
+      font-weight:750;
+    }
+
+
+
+    .learn-link{
+      margin-top:14px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      padding:12px 13px;
+      background:#f8f9ff;
+      border:1px solid #e5e6ff;
+      border-radius:14px;
+      text-decoration:none;
+      color:var(--text);
+      transition:.18s ease;
+    }
+
+    .learn-link:hover{
+      transform:translateY(-1px);
+      border-color:#cfd0ff;
+      box-shadow:0 7px 20px rgba(91,92,226,.08);
+    }
+
+    .learn-link .video-copy{
+      min-width:0;
+    }
+
+    .learn-link strong{
+      display:block;
+      font-size:.92rem;
+      line-height:1.3;
+    }
+
+    .learn-link small{
+      display:block;
+      margin-top:3px;
+      color:var(--muted);
+      font-size:.79rem;
+    }
+
+    .watch{
+      flex:0 0 auto;
+      padding:7px 9px;
+      border-radius:10px;
+      background:var(--accent-soft);
+      color:var(--accent);
+      font-size:.76rem;
+      font-weight:850;
+    }
+
+    .resources-now{
+      margin-top:16px;
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:14px;
+    }
+
+    .resource-card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:18px;
+    }
+
+    .resource-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:9px;
+    }
+
+    .free-badge{
+      font-size:.72rem;
+      font-weight:900;
+      color:#176343;
+      background:var(--green-soft);
+      padding:5px 8px;
+      border-radius:999px;
+    }
+
+    .resource-card h3{
+      margin:0 0 6px;
+      font-size:1.05rem;
+    }
+
+    .resource-card p{
+      margin:0;
+      color:var(--muted);
+      font-size:.9rem;
+    }
+
+    .resource-card a{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      margin-top:13px;
+      color:var(--accent);
+      text-decoration:none;
+      font-weight:850;
+      font-size:.88rem;
+    }
+
+    .tiny-note{
+      margin-top:12px;
+      color:var(--muted);
+      font-size:.84rem;
+    }
+
+    footer{
+      text-align:center;
+      color:var(--muted);
+      padding:0 0 34px;
+      font-size:.86rem;
+    }
+
+    @media (max-width:760px){
+      header{padding-top:52px}
+      .start-card{grid-template-columns:1fr}
+      .pill{width:max-content}
+      .today-grid{grid-template-columns:1fr}
+      .step{grid-template-columns:1fr;gap:12px}
+      .year{width:max-content}
+      .routine{grid-template-columns:1fr}
+      .projects{grid-template-columns:1fr}
+      .resources-now{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="wrap">
+      <div class="badge">🎯 Class 9 → AI Engineer</div>
+      <h1>You don’t need to learn AI yet.</h1>
+      <p class="lead">
+        Your job right now is much simpler: become good at <strong>Maths</strong>,
+        <strong>Python</strong> and <strong>problem solving</strong>. AI will become easier later.
+      </p>
+      <div class="hero-note">Start small. Stay consistent. You have years to become excellent.</div>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <section>
+      <div class="section-head">
+        <div class="eyebrow">Start here</div>
+        <h2>What should you do in Class 9?</h2>
+        <p class="sub">Only three things. Ignore everything else for now.</p>
+      </div>
+
+      <div class="start-card">
+        <div>
+          <h3>Your goal for this year</h3>
+          <p>Build a strong base instead of rushing into advanced AI tools.</p>
+        </div>
+        <div class="pill">7–8 hrs/week is enough</div>
+      </div>
+
+      <div class="today-grid">
+        <div class="mini">
+          <div class="num">1</div>
+          <strong>Get strong in Maths</strong>
+          <span>Algebra, graphs, statistics, probability and logical thinking.</span>
+        </div>
+        <div class="mini">
+          <div class="num">2</div>
+          <strong>Learn Python</strong>
+          <span>Variables → loops → functions → lists → small programs.</span>
+        </div>
+        <div class="mini">
+          <div class="num">3</div>
+          <strong>Build tiny projects</strong>
+          <span>Calculator, quiz, guessing game, marks analyser.</span>
+        </div>
+      </div>
+
+
+      <div class="resources-now">
+        <div class="resource-card">
+          <div class="resource-top">
+            <strong>📘 Maths</strong>
+            <span class="free-badge">FREE</span>
+          </div>
+          <h3>Khan Academy — Algebra basics</h3>
+          <p>Short, visual explanations. Use it only when a school maths topic feels unclear.</p>
+          <a href="https://www.youtube.com/watch?v=vDqOoI-4Z6M" target="_blank" rel="noopener">▶ Start with algebra</a>
+        </div>
+
+        <div class="resource-card">
+          <div class="resource-top">
+            <strong>🐍 Python · Hindi</strong>
+            <span class="free-badge">FREE</span>
+          </div>
+          <h3>CodeWithHarry — Python for Beginners</h3>
+          <p>Beginner-friendly Hindi lessons. Watch slowly and code along — never binge the whole course.</p>
+          <a href="https://www.youtube.com/playlist?list=PLu0W_9lII9agwh1XjRt242xIpHhPT2llg" target="_blank" rel="noopener">▶ Start Python</a>
+        </div>
+      </div>
+      <p class="tiny-note"><strong>For Class 9:</strong> these two resources are enough. The videos below are for later years — save them, don't start them now.</p>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div class="eyebrow">Your path</div>
+        <h2>One step at a time</h2>
+        <p class="sub">You do not need to learn all of this today.</p>
+      </div>
+
+      <div class="timeline">
+        <div class="step">
+          <div class="year">Class 9</div>
+          <div>
+            <h3>Maths + Python</h3>
+            <p>Learn to think logically and write simple programs yourself.</p>
+            <div class="tags">
+              <span class="tag">Algebra</span>
+              <span class="tag">Python basics</span>
+              <span class="tag">Functions</span>
+              <span class="tag">Small projects</span>
+            </div>
+            <a class="learn-link" href="https://www.youtube.com/watch?v=rfscVS0vtbw" target="_blank" rel="noopener">
+              <span class="video-copy"><strong>English option: Python for Beginners · freeCodeCamp</strong><small>Use this only if you prefer learning in English.</small></span>
+              <span class="watch">WATCH</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="year">Class 10</div>
+          <div>
+            <h3>Better coding + GitHub</h3>
+            <p>Learn basic data structures, algorithms and start saving your projects online.</p>
+            <div class="tags">
+              <span class="tag">Problem solving</span>
+              <span class="tag">Git</span>
+              <span class="tag">GitHub</span>
+            </div>
+            <a class="learn-link" href="https://www.youtube.com/watch?v=gwWKnnCMQ5c" target="_blank" rel="noopener">
+              <span class="video-copy"><strong>Git & GitHub for Beginners · Hindi</strong><small>Save for Class 10.</small></span>
+              <span class="watch">LATER</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="year">Class 11</div>
+          <div>
+            <h3>Data + AI Maths</h3>
+            <p>Start understanding data, statistics, probability, vectors and matrices.</p>
+            <div class="tags">
+              <span class="tag">Statistics</span>
+              <span class="tag">Probability</span>
+              <span class="tag">Data analysis</span>
+            </div>
+            <a class="learn-link" href="https://www.youtube.com/playlist?list=PL1328115D3D8A2566" target="_blank" rel="noopener">
+              <span class="video-copy"><strong>Statistics · Khan Academy</strong><small>Save for Class 11. Learn along with school maths.</small></span>
+              <span class="watch">LATER</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="year">Class 11–12</div>
+          <div>
+            <h3>Machine Learning</h3>
+            <p>Learn how computers find patterns in data and make predictions.</p>
+            <div class="tags">
+              <span class="tag">Regression</span>
+              <span class="tag">Classification</span>
+              <span class="tag">Model training</span>
+            </div>
+            <a class="learn-link" href="https://www.youtube.com/watch?v=Gv9_4yMHFhI" target="_blank" rel="noopener">
+              <span class="video-copy"><strong>A Gentle Introduction to Machine Learning · StatQuest</strong><small>Excellent first ML explanation. Save for Class 11–12.</small></span>
+              <span class="watch">LATER</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="year">Class 12+</div>
+          <div>
+            <h3>Deep Learning + Generative AI</h3>
+            <p>Move into neural networks, image AI, language AI, LLMs and real AI apps.</p>
+            <div class="tags">
+              <span class="tag">Neural networks</span>
+              <span class="tag">LLMs</span>
+              <span class="tag">AI apps</span>
+            </div>
+            <a class="learn-link" href="https://www.youtube.com/playlist?list=PLLMP7TazTxHrgVk7w1EKpLBIDoC50QrPS" target="_blank" rel="noopener">
+              <span class="video-copy"><strong>Neural Networks · 3Blue1Brown</strong><small>Very visual. Save until your maths foundation is stronger.</small></span>
+              <span class="watch">LATER</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="year">College</div>
+          <div>
+            <h3>Become an AI Engineer</h3>
+            <p>Combine AI with software engineering and learn to deploy products for real users.</p>
+            <div class="tags">
+              <span class="tag">APIs</span>
+              <span class="tag">Databases</span>
+              <span class="tag">Cloud</span>
+              <span class="tag">Deployment</span>
+            </div>
+            <a class="learn-link" href="https://www.youtube.com/c/Freecodecamp" target="_blank" rel="noopener">
+              <span class="video-copy"><strong>freeCodeCamp · Software & AI courses</strong><small>Use in college as a free course library — pick topics only when you need them.</small></span>
+              <span class="watch">LATER</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div class="eyebrow">Simple routine</div>
+        <h2>What to do every week</h2>
+      </div>
+
+      <div class="routine">
+        <div class="routine-card">
+          <div class="days">
+            <div class="day"><span>Mon</span><span>Python · 45 min</span></div>
+            <div class="day"><span>Tue</span><span>Maths · 45 min</span></div>
+            <div class="day"><span>Wed</span><span>Python · 45 min</span></div>
+            <div class="day"><span>Thu</span><span>Maths · 45 min</span></div>
+            <div class="day"><span>Fri</span><span>Coding practice · 45 min</span></div>
+            <div class="day"><span>Weekend</span><span>Build one small project · 2–4 hrs</span></div>
+          </div>
+        </div>
+
+        <div class="rule-card">
+          <h3>Golden rule</h3>
+          <p>
+            Do not spend all your time watching tutorials.
+            Learn one concept → close the video → build something with it.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div class="eyebrow">First projects</div>
+        <h2>Build these before touching advanced AI</h2>
+      </div>
+
+      <div class="projects">
+        <div class="project">
+          <small>Project 01</small>
+          <h3>Calculator</h3>
+          <p>Practice variables, input, functions and conditions.</p>
+        </div>
+        <div class="project">
+          <small>Project 02</small>
+          <h3>Quiz Game</h3>
+          <p>Practice questions, scoring, loops and logic.</p>
+        </div>
+        <div class="project">
+          <small>Project 03</small>
+          <h3>Number Guessing Game</h3>
+          <p>Learn loops, conditions and simple game logic.</p>
+        </div>
+        <div class="project">
+          <small>Project 04</small>
+          <h3>Marks Analyser</h3>
+          <p>Use lists and maths to calculate averages and grades.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="final-card">
+      <h2>Remember this path</h2>
+      <p>You are not late. You are early. Your only job is to build the foundation properly.</p>
+      <div class="path">
+        <span>Maths</span>
+        <span>→</span>
+        <span>Python</span>
+        <span>→</span>
+        <span>Projects</span>
+        <span>→</span>
+        <span>Data</span>
+        <span>→</span>
+        <span>Machine Learning</span>
+        <span>→</span>
+        <span>AI Engineer</span>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    Built as a simple roadmap for a Class 9 student.
+  </footer>
+
+</body>
+</html>
